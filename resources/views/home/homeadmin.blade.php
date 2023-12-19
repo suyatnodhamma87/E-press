@@ -6,10 +6,10 @@
         <div class="col">
           <!-- Page pre-title -->
           <div class="page-pretitle">
-            Overview
+           Rajawali E-Press
           </div>
           <h2 class="page-title">
-            Dashboard
+            Rekap Kehadiran Hari Ini {{ date('d-m-Y', strtotime(date('Y-m-d'))) }}
           </h2>
         </div>
       </div>
@@ -80,7 +80,7 @@
                       </div>
                       <div class="col">
                         <div class="font-weight-medium">
-                          {{ $rekapijin->jmlijin != null ? $rekapijin->jmlijin : 0}}
+                          {{ $rekappresensi->jmlijin}}
                         </div>
                         <div class="text-secondary">
                           Karwayan Ijin
@@ -101,10 +101,10 @@
                     </div>
                     <div class="col">
                       <div class="font-weight-medium">
-                        {{ $rekapijin->jmlsakit != null ? $rekapijin->jmlsakit : 0 }}
+                        {{ $rekappresensi->jmlsakit }}
                       </div>
                       <div class="text-secondary">
-                        Karwayan Sakit
+                        Karyawan Sakit
                       </div>
                     </div>
                   </div>

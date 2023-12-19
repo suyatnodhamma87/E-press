@@ -18,10 +18,11 @@ class Karyawan extends Authenticatable
         'nip',
         'nama_lengkap',
         'jabatan',
+        'no_hp',
         'password',
     ];
 
- 
+
     protected $hidden = [
         'password',
         'remember_token',

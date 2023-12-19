@@ -29,18 +29,6 @@
             padding: 1px;
         }
 
-        /* th {
-            padding: 5px;
-            font-weight: bold;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        td {
-            padding: 5px;
-            font-size: 12px;
-        } */
-
         .tablepresensi {
             width: 100%;
             margin-top: 15px;
@@ -71,24 +59,6 @@
 <!-- Set "A5", "A4" or "A3" for class name -->
 <!-- Set also "landscape" if you need -->
 <body class="A4">
-
-    <?php
-    function selisihwaktu($jam_in, $jam_out) {
-        list($h, $m, $s) = explode(":", $jam_in);
-        $dtAwal = mktime ($h, $m, $s, "1", "1", "1");
-        list($h, $m, $s) = explode(":", $jam_out);
-        $dtAkhir = mktime ($h, $m, $s, "1", "1", "1");
-        $dtSelisih = $dtAkhir - $dtAwal;
-        $totalmenit = $dtSelisih / 60;
-        $jam = explode(".", $totalmenit / 60);
-        $sisamenit = ($totalmenit / 60) - $jam[0];
-        $sisamenit2 = $sisamenit * 60;
-        $jml_jam = $jam[0];
-        return $jml_jam . ":" . round($sisamenit2);
-        //return (($jml_jam*60) + ($sisamenit2));
-    }
-    ?>
-
   <!-- Each sheet element should have the class "sheet" -->
   <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
   <section class="sheet padding-10mm">
@@ -106,7 +76,7 @@
                         PERIODE {{ strtoupper($namabulan[$bulan])}} {{ $tahun }}<br>
                         PT. RAJAWALI PARAMA KONSTRUKSI<br>
                     </span>
-                    <span><i>Jl. Bhayangkara 1 No. 1 Kel. Pakujaya Kec. Serpong, Tangerang Selatanspani</span>
+                    <span><i>Jl. Bhayangkara 1 No. 1 Kel. Pakujaya Kec. Serpong, Tangerang Selatan</span>
                 </td>
             </tr>
 
@@ -143,24 +113,6 @@
             </tr>
         </table>
 
-        {{-- <table>
-            <tr>
-                <th rowspan="2"> No.</th>
-                <th rowspan="2"> NIP</th>
-                <th rowspan="2"> Nama Lengkap</th>
-                <th colspan="31" align="center"> Tanggal</th>
-            </tr>
-            <tr>
-                @for($i=1; $i <= 31; $i++)<th>{{ $i }}</th> @endfor
-            </tr>
-            @foreach ($presensi as $p)
-            <tr>
-                <td> {{ $loop->iteration }}</td>
-                <td> {{ $p->nip }}</td>
-            </tr>
-            @endforeach
-        </table> --}}
-
         <table class="tablepresensi">
             <tr style="background-color: yellow; font-weight:bold" >
                 <td>No.</td>
@@ -169,14 +121,17 @@
                 <td>Foto</td>
                 <td>Jam Pulang</td>
                 <td>Foto</td>
+                <td>Status</td>
                 <td>Keterangan</td>
                 <td>Total Jam</td>
             </tr>
             @foreach ($presensi as $p )
+            @if ($p->status=="h")
             @php
                 $path_in= Storage::url('uploads/absensi/'.$p->foto_in);
                 $path_out= Storage::url('uploads/absensi/'.$p->foto_out);
-                $jamterlambat = (selisihwaktu('08:30:00', $p->jam_in));
+                $jamterlambat = (selisih($p->jam_masuk, $p->jam_in));
+
             @endphp
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -191,8 +146,9 @@
                     Tidak ada
                     @endif
                 </td>
+                <td style="text-align: center">{{ $p->status }}</td>
                 <td>
-                    @if ($p->jam_in > '08:30')
+                    @if ($p->jam_in > $p->jam_masuk)
                     Terlambat <b>{{ $jamterlambat }}</b>
                     @else Tepat Waktu
                     @endif
@@ -200,7 +156,7 @@
                 <td>
                     @if ($p->jam_out != null)
                     @php
-                    $jmljamkerja = selisihwaktu($p->jam_in, $p->jam_out);
+                    $jmljamkerja = selisih($p->jam_in, $p->jam_out);
                     @endphp
                     @else
                     @php
@@ -210,6 +166,19 @@
                     {{ $jmljamkerja }}
                 </td>
             </tr>
+            @else
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ date("d-m-Y", strtotime($p->tgl_presensi)) }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">{{ $p->status }}</td>
+                <td>{{ $p->alasan }}</td>
+                <td></td>
+            </tr>
+            @endif
             @endforeach
         </table>
 

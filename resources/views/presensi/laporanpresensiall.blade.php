@@ -55,6 +55,18 @@
                                 </div>
                             </div>
                             <div class="row mt-2">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <select name="kode_div" id="kode_div" class="form-select">
+                                            <option value="">Semua Karyawan</option>
+                                            @foreach ($divisi as $d )
+                                                <option value="{{ $d->kode_div }}">  {{ $d->nama_div }} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col-6">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary w-100">

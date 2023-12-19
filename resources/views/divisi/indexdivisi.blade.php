@@ -90,7 +90,7 @@
                                             <td>{{ $d->nama_div }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="#" class="edit btn btn-success btn-sn" kode_div="{{ $d->kode_div }}">
+                                                    <a href="#" class="edit btn btn-success btn-sm" kode_div="{{ $d->kode_div }}">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                             <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
@@ -100,7 +100,7 @@
                                                     </a>
                                                     <form action="/divisi/{{ $d->kode_div}}/delete" method="POST" style="margin-left:5px">
                                                         @csrf
-                                                        <a class="btn btn-danger btn-sn delete-confirm">
+                                                        <a class="btn btn-danger btn-sm delete-confirm">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                                 <path d="M4 7h16" />
                                                                 <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />

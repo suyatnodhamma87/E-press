@@ -46,12 +46,14 @@
                                     <tr>
                                         <th> No.</th>
                                         <th> NIP</th>
-                                        <th> Nama Karyawan</th>
+                                        <th> Nama</th>
                                         <th> Divisi</th>
+                                        <th> Jadwal</th>
                                         <th> Jam Masuk</th>
                                         <th> Foto</th>
                                         <th> Jam Pulang </th>
                                         <th> Foto</th>
+                                        <th> Status</th>
                                         <th> Keterangan</th>
                                         <th> Lokasi Absen</th>
                                     </tr>

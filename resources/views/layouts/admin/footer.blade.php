@@ -2,7 +2,11 @@
     <div class="container-xl">
       <div class="row text-center align-items-center flex-row-reverse">
         <div class="col-lg-auto ms-lg-auto">
-          <ul class="list-inline list-inline-dots mb-0">
+          <ul class="list-inline list-inline-dots mb-0" style="text-align: right">
+            <p> PT. Rajawali Parama Konstruksi
+            <br> Jl. Bhayangkara 1 No. 1 Kel. Pakujaya
+                Kec. Serpong – Tangerang Selatan
+                15324 (Jakarta – Indonesia)</p>
             {{-- <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank" class="link-secondary" rel="noopener">Documentation</a></li>
             <li class="list-inline-item"><a href="./license.html" class="link-secondary">License</a></li>
             <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Source code</a></li> --}}

@@ -1,7 +1,7 @@
 @extends('layouts.presensi')
 @section('header')
 {{-- App Header --}}
-<div class="appHeader bg-primary text.light">
+<div class="appHeader bg-dongker text.light">
     <div class="left">
         <a href="javascript:;" class="headerButton goBack">
             <ion-icon name="chevron-back-outline"><ion-icon>
@@ -30,6 +30,12 @@
             {{ $messageerror }}
         </div>
         @endif
+
+        @error('foto')
+        <div class="alert alert-warning">
+            <p> {{  $message }}</p>
+        </div>
+        @enderror
 
     </div>
 </div>

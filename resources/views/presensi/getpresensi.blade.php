@@ -3,11 +3,14 @@
     $foto_in = Storage::url('/uploads/absensi/'.$p->foto_in);
     $foto_out = Storage::url('uploads/absensi/'.$p->foto_out);
 @endphp
+
+@if ($p->status=="h")
 <tr>
     <td>{{ $loop->iteration }}</td>
     <td>{{ $p->nip }}</td>
     <td>{{ $p->nama_lengkap }}</td>
     <td>{{ $p->nama_div }}</td>
+    <td>{{ $p->nama_jamkerja }}<br>({{ $p->jam_masuk }} s.d {{ $p->jam_pulang }})</td>
     <td>{{ $p->jam_in }}</td>
     <td>
         <img src="{{ url($foto_in) }}" class="avatar" alt="">
@@ -26,9 +29,13 @@
             </svg>
         @endif
     </td>
+    <td>{{ $p->status }}</td>
     <td>
-        @if($p->jam_in > '08:30')
-            <span class="badge bg-danger"> Terlambat </span>
+        @if($p->jam_in > $p->jam_masuk)
+        @php
+            $jamterlambat = selisih($p->jam_masuk, $p->jam_in)
+        @endphp
+            <span class="badge bg-warning"> Terlambat {{ $jamterlambat }}  </span>
         @else
             <span class="badge bg-success"> Tepat waktu</span>
         @endif
@@ -46,6 +53,31 @@
         </a>
     </td>
 </tr>
+@else
+<tr>
+    <td>{{ $loop->iteration }}</td>
+    <td>{{ $p->nip }}</td>
+    <td>{{ $p->nama_lengkap }}</td>
+    <td>{{ $p->nama_div }}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        @if($p->status=="i")
+        <span>Ijin</span>
+        @elseif($p->status=="s")
+        <span>Sakit</span>
+        @elseif($p->status=="c")
+        <span>Cuti</span>
+        @endif
+    </td>
+    <td>{{ $p->alasan }}</td>
+    <td></td>
+</tr>
+@endif
+
 @endforeach
 
 <script>

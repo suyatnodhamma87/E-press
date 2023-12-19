@@ -122,8 +122,9 @@
                                                     {{ $k->kode_anper }}
                                                 </td>
                                                 <td>
-                                                    <div class="btn-group">
-                                                        <a href="#" class="edit btn btn-success btn-sn" nip="{{ $k->nip }}">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                        <a href="#" class="edit btn btn-success btn-sm" nip="{{ $k->nip }}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                                 <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
@@ -131,9 +132,27 @@
                                                                 <path d="M16 5l3 3" />
                                                             </svg>
                                                         </a>
+                                                        <a href="/setting/{{ $k->nip }}/setjamkerja" class="btn btn-info btn-sm">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                                <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                                                                <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                                                            </svg>
+                                                        </a>
+                                                        <a href="/karyawan/{{  Crypt::encrypt($k->nip) }}/resetpassword" class="btn btn-warning btn-sm">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock-open-off" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                                <path d="M15 11h2a2 2 0 0 1 2 2v2m0 4a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h4" />
+                                                                <path d="M12 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                                                <path d="M8 11v-3m.347 -3.631a4 4 0 0 1 7.653 1.631" />
+                                                                <path d="M3 3l18 18" />
+                                                            </svg>
+                                                        </a>
+                                                        </div>
+                                                        <div>
                                                         <form action="/karyawan/{{ $k->nip}}/delete" method="POST" style="margin-left:5px">
                                                             @csrf
-                                                            <a class="btn btn-danger btn-sn delete-confirm">
+                                                            <a class="btn btn-danger btn-sm delete-confirm">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                                     <path d="M4 7h16" />
                                                                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
@@ -142,6 +161,7 @@
                                                                 </svg>
                                                             </a>
                                                         </form>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -181,7 +201,7 @@
                                 <path d="M15 12l2 0" />
                                 <path d="M7 16l10 0" /></svg>
                             </span>
-                                <input type="text" value="" id="nip" name="nip" class="form-control" placeholder="NIP">
+                                <input type="text" maxlength="6" value="" id="nip" name="nip" class="form-control" placeholder="NIP">
                         </div>
                     </div>
                 </div>
@@ -226,7 +246,7 @@
                                 <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
                                 <path d="M15 6h6m-3 -3v6" /></svg>
                             </span>
-                                <input type="text" value="" id="no_hp" name="no_hp" class="form-control" placeholder="no_hp">
+                                <input type="text" value="" id="no_hp" name="no_hp" class="form-control" placeholder="No HP max 13 angka">
                         </div>
                     </div>
                 </div>
@@ -302,6 +322,8 @@
 @push ('myscript')
 <script>
     $(function(){
+        $("#nip").mask("000000");
+        $("#no_hp").mask("0000000000000");
         $("#btnTambahkaryawan").click(function() { // function tombol edit karyawan
             $("#modal-tambahkaryawan").modal("show");
 

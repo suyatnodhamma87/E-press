@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Karyawan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -66,7 +67,13 @@ class KaryawanController extends Controller
             }
 
         } catch (\Exception $e ) {
-           return Redirect::back()->with(['error' =>'Data gagal disimpan']);
+
+            if($e->getCode() == 23000) {
+                $message = "Data dengan NIP " . $nip . "Sudah ada";
+            } else {
+                $message = " Hubungi Tim IT";
+            }
+           return Redirect::back()->with(['error' =>'Data gagal disimpan' . $message]);
         }
     }
     public function edit(Request $request) {
@@ -126,6 +133,21 @@ class KaryawanController extends Controller
             return Redirect::back()->with(['success' => 'Data berhasil dihapus!']);
         } else {
             return Redirect::back()->with(['warning' => 'Data gagal dihapus!']);
+        }
+    }
+
+    public function resetpassword($nip) {
+
+        $nip = Crypt::decrypt($nip);
+        $password = Hash::make('123');
+        $reset = DB::table('karyawan')->where('nip',$nip)->update([
+            'password' => $password
+        ]);
+
+        if($reset) {
+            return Redirect::back()->with(['success' => 'Password berhasil direset']);
+        } else {
+            return Redirect::back()->with(['warning' => 'Password gagal direset']);
         }
     }
 }

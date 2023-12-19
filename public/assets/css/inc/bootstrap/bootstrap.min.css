@@ -6248,6 +6248,9 @@ a.close.disabled {
 .bg-primary {
   background-color: #007bff !important;
 }
+.bg-dongker {
+    background-color: #041c69 !important;
+}
 a.bg-primary:focus,
 a.bg-primary:hover,
 button.bg-primary:focus,

@@ -12,13 +12,29 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
     <title>Dasboard</title>
-    <meta name="description" content="Mobilekit HTML Mobile UI Kit">
+    {{-- <meta name="description" content="Mobilekit HTML Mobile UI Kit"> --}}
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
-    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/img/icon/192x192.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/logopt.png')}}" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/img/icon/logopt.png')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="{{ asset('assets/datetime/css/mobiscroll.jquery.min.css') }}" rel="stylesheet" />
+    <style>
+        .selectmaterialize {
+            display: block;
+            background-color: transparent !important;
+            border: 0px !important;
+            border-bottom: 1px solid #9e9e9e !important;
+            border-radius: 0 !important;
+            outline: none !important;
+            height: 3rem !important;
+            width: 100% !important;
+            font-size: 16px !important;
+            margin: 0 0 8px 0 !important;
+            padding: 0 !important;
+            color: #495057;
+        }
+    </style>
 
     {{-- <link rel="manifest" href="__manifest.json"> --}}
 </head>

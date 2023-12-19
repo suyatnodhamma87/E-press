@@ -60,7 +60,7 @@ button:focus {
   right: 0;
   z-index: 999;
   background: #fff;
-  color: #141515;
+  color: #fbfbfb;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.08);
 }
 
@@ -110,7 +110,7 @@ button:focus {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  color: #141515;
+  color: #ffffff;
   position: relative;
 }
 
@@ -351,7 +351,7 @@ button:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: #041c69;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,7 +427,7 @@ button:focus {
   align-items: center;
   justify-content: center;
   border-radius: 200px;
-  background: #1e74fd;
+  background: #ffbf00;
 }
 
 .appBottomMenu .item .action-button.large {
@@ -2226,9 +2226,11 @@ a.badge-dark {
 }
 
 .btn-primary {
-  background: #1e74fd !important;
-  border-color: #1e74fd !important;
+  background: #039700 !important;
+  /* border-color: #1e74fd !important; */
   color: #ffffff !important;
+  border: 2px solid #039b0a !important;
+  border-radius: 11px !important;
 }
 
 .btn-primary:hover,
@@ -3674,6 +3676,7 @@ a.badge-dark {
 }
 
 a.bg-primary {
+  /* background: #1e74fd !important; */
   background: #1e74fd !important;
   color: #fff !important;
 }
@@ -7996,7 +7999,7 @@ body.dark-mode-active .cart-item .cart-item-footer {
 
 #user-section {
   height: 180px;
-  background-color: #092c9f;
+  background-color: #041c69;
   padding: 20px;
 }
 
@@ -8084,3 +8087,8 @@ body.dark-mode-active .cart-item .cart-item-footer {
   width: 100%;
   height: 500px;
 }
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }

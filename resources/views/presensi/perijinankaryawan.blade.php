@@ -15,6 +15,21 @@
     <div class="container-xl">
         <div class="row">
             <div class="col-12">
+                @if (Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+                @endif
+
+                @if (Session::get('warning'))
+                <div class="alert alert-warning">
+                    {{ Session::get('warning') }}
+                </div>
+                @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <form action="/presensi/perijinankaryawan" method="GET" autocomplete="off">
                     <div class="row">
                         <div class="col-6">
@@ -119,11 +134,12 @@
                         <tr style="font-weight: bold">
                             <th>No</th>
                             <th>Tanggal Ijin</th>
+                            <th>Kode Ijin</th>
                             <th>NIP</th>
                             <th>Nama Karyawan</th>
                             <th>Jabatan</th>
                             <th>Status</th>
-                            <th>Keterangan</th>
+                            <th>Alasan</th>
                             <th>Status Approve</th>
                             <th>Aksi</th>
                         </tr>
@@ -132,12 +148,13 @@
                         @foreach ($perijinankaryawan as $p)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ date('d-m-Y', strtotime($p->tgl_ijin))  }}</td>
+                                <td>{{ date('d-m-Y', strtotime($p->tgl_ijin_dari)) }} s/d {{ date('d-m-Y', strtotime($p->tgl_ijin_sampai)) }}</td>
+                                <td>{{ $p->kode_ijin }}</td>
                                 <td>{{ $p->nip }}</td>
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->jabatan }}</td>
                                 <td>{{ $p->status == "i" ? "Ijin" : "Sakit" }}</td>
-                                <td>{{ $p->keterangan }}</td>
+                                <td>{{ $p->alasan }}</td>
                                 <td>
                                     @if($p->status_approval==1)
                                         <span class="badge bg-success">Disetujui</span>
@@ -149,7 +166,7 @@
                                 </td>
                                 <td>
                                     @if ($p->status_approval==0)
-                                    <a href="#" class="btn btn-sm btn-primary" id="status_approval" id_perijinankaryawan="{{ $p->id }}">
+                                    <a href="#" class="btn btn-sm btn-primary status_approval"  kode_ijin="{{ $p->kode_ijin }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
@@ -159,7 +176,7 @@
                                         Action
                                     </a>
                                     @else
-                                    <a href="/presensi/{{ $p->id }}/batalkanapproval" class="btn btn-sm btn-danger">
+                                    <a href="/presensi/{{ $p->kode_ijin }}/batalkanapproval" class="btn btn-sm btn-danger">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-xbox-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
@@ -189,7 +206,7 @@
         <div class="modal-body">
             <form action="/presensi/approvalijinkaryawan" method="POST">
                 @csrf
-                <input type="hidden" id="id_formperijinankaryawan" name="id_formperijinankaryawan">
+                <input type="hidden" id="kode_ijin_form" name="kode_ijin_form">
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
@@ -222,10 +239,10 @@
 @push('myscript')
 <script>
     $(function () {
-        $("#status_approval").click(function(e) {
+        $(".status_approval").click(function(e) {
             e.preventDefault();
-            var id_perijinankaryawan = $(this).attr("id_perijinankaryawan");
-            $("#id_formperijinankaryawan").val(id_perijinankaryawan);
+            var kode_ijin = $(this).attr("kode_ijin");
+            $("#kode_ijin_form").val(kode_ijin);
             $("#modal-perijinankaryawan").modal("show");
         });
 
