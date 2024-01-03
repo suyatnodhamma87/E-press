@@ -218,10 +218,10 @@
                                     <h3 style="line-height: 2px;"> {{ $item->nama_jamkerja }}</h3>
                                     <h4 style="margin:0px !important"> {{ date("d-m-y", strtotime($item->tgl_presensi)) }}</h4>
                                     <span>
-                                        {!! $item->jam_in != null ? date("H-i", strtotime($item->jam_in)) : '<span class="text-danger">Belum Absen</span>' !!}
+                                        {!! $item->jam_in != null ? date("H:i", strtotime($item->jam_in)) : '<span class="text-danger">Belum Absen</span>' !!}
                                     </span>
                                     <span>
-                                        {!! $item->jam_out != null ? date("H-i", strtotime($item->jam_out)) : '<span class="text-danger">- Belum Absen</span>' !!}
+                                        {!! $item->jam_out != null ? date("H:i", strtotime($item->jam_out)) : '<span class="text-danger">- Belum Absen</span>' !!}
                                     </span>
 
                                     <div id="keterangan" class="mt-2">

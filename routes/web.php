@@ -87,29 +87,21 @@ Route::middleware(['auth:karyawan'])->group(function () {
 //editijinuser
     Route::get('/ijin/{kode_ijin}/showact', [PresensiController::class, 'showact']);
     Route::get('/ijin/{kode_ijin}/delete', [PresensiController::class, 'deleteijin']);
-
 });
 
-Route::group(['middleware' => ['role:administrator,user']], function (){
-//Route::middleware(['auth:user'])->group(function(){
+//Route khusus administrator & Admin divisi
+Route::group(['middleware' => ['role:administrator|admin divisi,user']], function (){
     Route::get('/proseslogoutadmin', [AuthController::class, 'proseslogoutadmin']);
     Route::get('/panel/homeadmin', [HomeController::class, 'homeadmin']);
 
     //karyawan
-    Route::get('/karyawan', [KaryawanController::class, 'index'])->middleware('permission:view-karyawan,user');
-    // Route::get('/karyawan', [KaryawanController::class, 'index']);
-    Route::post('/karyawan/store', [KaryawanController::class, 'store']);
-    Route::post('/karyawan/edit', [KaryawanController::class, 'edit']);
-    Route::post('/karyawan/{nip}/update', [KaryawanController::class, 'update']);
-    Route::post('/karyawan/{nip}/delete', [KaryawanController::class, 'delete']);
+    Route::get('/karyawan', [KaryawanController::class, 'index']);
     Route::get('/karyawan/{nip}/resetpassword', [KaryawanController::class, 'resetpassword']);
 
-    //Divisi
-    Route::get('/divisi', [DivisiController::class, 'indexdivisi'])->middleware('permission:view-divisi,user');
-    Route::post('/divisi/store', [DivisiController::class, 'store']);
-    Route::post('/divisi/edit', [DivisiController::class, 'edit']);
-    Route::post('/divisi/{kode_div}/update', [DivisiController::class, 'update']);
-    Route::post('/divisi/{kode_div}/delete', [DivisiController::class, 'delete']);
+    //set jam kerja karyawan
+    Route::get('/setting/{nip}/setjamkerja', [SettingController::class, 'setjamkerja']);
+    Route::post('/setting/storesetjamkerja', [SettingController::class, 'storesetjamkerja']);
+    Route::post('/setting/updatesetjamkerja', [SettingController::class, 'updatesetjamkerja']);
 
     //presensi
     Route::get('/presensi/livereport', [PresensiController::class, 'livereport']);
@@ -120,6 +112,26 @@ Route::group(['middleware' => ['role:administrator,user']], function (){
     Route::get('/presensi/laporanpresensiall', [PresensiController::class, 'laporanpresensiall']);
     Route::post('/presensi/cetaklaporanpresensiall', [PresensiController::class, 'cetaklaporanpresensiall']);
     Route::get('/presensi/perijinankaryawan', [PresensiController::class, 'perijinankaryawan']);
+});
+
+
+Route::group(['middleware' => ['role:administrator,user']], function (){
+    //karyawan
+    Route::post('/karyawan/store', [KaryawanController::class, 'store']);
+    Route::post('/karyawan/edit', [KaryawanController::class, 'edit']);
+    Route::post('/karyawan/{nip}/update', [KaryawanController::class, 'update']);
+    Route::post('/karyawan/{nip}/delete', [KaryawanController::class, 'delete']);
+
+
+    //Divisi
+    Route::get('/divisi', [DivisiController::class, 'indexdivisi'])->middleware('permission:view-divisi,user');
+    Route::post('/divisi/store', [DivisiController::class, 'store']);
+    Route::post('/divisi/edit', [DivisiController::class, 'edit']);
+    Route::post('/divisi/{kode_div}/update', [DivisiController::class, 'update']);
+    Route::post('/divisi/{kode_div}/delete', [DivisiController::class, 'delete']);
+
+    //presensi
+
     Route::post('/presensi/approvalijinkaryawan', [PresensiController::class, 'approvalijinkaryawan']);
     Route::get('/presensi/{kode_ijin}/batalkanapproval', [PresensiController::class, 'batalkanapproval']);
 
@@ -140,9 +152,7 @@ Route::group(['middleware' => ['role:administrator,user']], function (){
     Route::post('/setting/editjamkerja', [SettingController::class, 'editjamkerja']);
     Route::post('/setting/updatejamkerja', [SettingController::class, 'updatejamkerja']);
     Route::post('/setting/jam_kerja/{kode_jamkerja}/deletejamkerja', [SettingController::class, 'deletejamkerja']);
-    Route::get('/setting/{nip}/setjamkerja', [SettingController::class, 'setjamkerja']);
-    Route::post('/setting/storesetjamkerja', [SettingController::class, 'storesetjamkerja']);
-    Route::post('/setting/updatesetjamkerja', [SettingController::class, 'updatesetjamkerja']);
+
 
     Route::get('/setting/jamkerjadiv', [SettingController::class, 'jamkerjadiv']);
     Route::get('/setting/jamkerjadiv/create', [SettingController::class, 'createjamkerjadiv']);

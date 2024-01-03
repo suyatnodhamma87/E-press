@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         {{-- Button tambah data --}}
-                        <div class="row">
+                        @role('administrator', 'user')
                             <div class="col-12">
                                 <a href="#" class="btn btn-primary" id="btnTambahkaryawan">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -48,6 +48,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endrole
                         {{-- Button tambah data --}}
 
                         <div class="row mt-2">
@@ -124,6 +125,7 @@
                                                 <td>
                                                     <div class="d-flex">
                                                         <div>
+                                                        @role('administrator', 'user')
                                                         <a href="#" class="edit btn btn-success btn-sm" nip="{{ $k->nip }}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -132,6 +134,7 @@
                                                                 <path d="M16 5l3 3" />
                                                             </svg>
                                                         </a>
+                                                        @endrole
                                                         <a href="/setting/{{ $k->nip }}/setjamkerja" class="btn btn-info btn-sm">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -150,6 +153,7 @@
                                                         </a>
                                                         </div>
                                                         <div>
+                                                        @role('administrator', 'user')
                                                         <form action="/karyawan/{{ $k->nip}}/delete" method="POST" style="margin-left:5px">
                                                             @csrf
                                                             <a class="btn btn-danger btn-sm delete-confirm">
@@ -161,6 +165,7 @@
                                                                 </svg>
                                                             </a>
                                                         </form>
+                                                        @endrole
                                                         </div>
                                                     </div>
                                                 </td>

@@ -52,6 +52,7 @@
 @endsection
 
 @section('content')
+{{-- Kamera absensi --}}
 <div class="row" style="margin-top: 70px">
     <div class="col">
         <input type="hidden" id="lokasi">
@@ -67,6 +68,9 @@
     <p> Akhir : {{ date("H:i", strtotime($jamkerja->akhir_jam_masuk)) }}</p>
     <p> Pulang : {{ date("H:i", strtotime($jamkerja->jam_pulang)) }}</p>
 </div>
+{{-- Kamera absensi --}}
+
+{{-- Tombol Absen --}}
 <div class="row mt-2">
     <div class="col">
         @if($cek > 0)
@@ -78,15 +82,21 @@
             <Button class="btn btn-primary btn-block" id="takeabsen">
                 <ion-icon name="camera-outline" role="img" class="md hydrated" aria-label="add outline"></ion-icon>
                 Absen masuk
+            </Button>
         @endif
-
     </div>
 </div>
+{{-- Tombol Absen --}}
+
+{{-- Maps Absensi --}}
 <div class="row mt-2">
     <div class="col">
         <div id="map"></div>
     </div>
 </div>
+{{-- Maps Absensi --}}
+
+{{-- Notifikasi absen masuk dan pulang --}}
 <audio id="notifikasi_in">
     <source src="{{ asset('assets/sound/audio_in.wav') }}" type="audio/wav">
 </audio>
@@ -96,6 +106,7 @@
 <audio id="error_radius">
     <source src="{{ asset('assets/sound/error_radius.wav') }}" type="audio/wav">
 </audio>
+{{-- Notifikasi absen masuk dan pulang --}}
 @endsection
 
 @push('myscript')
@@ -111,7 +122,6 @@
             h = d.getHours();
             m = set(d.getMinutes());
             s = set(d.getSeconds());
-
             e.innerHTML = h + ':' + m + ':' + s;
 
             setTimeout('jam()', 1000);
@@ -121,8 +131,8 @@
         e = e <10 ? '0' + e : e;
         return e;
     }
-
 </script>
+
 <script>
     var notifikasi_in = document.getElementById('notifikasi_in');
     var notifikasi_out = document.getElementById('notifikasi_out');

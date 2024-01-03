@@ -141,7 +141,9 @@
                             <th>Status</th>
                             <th>Alasan</th>
                             <th>Status Approve</th>
+                            @role('administrator', 'user')
                             <th>Aksi</th>
+                            @endrole
                         </tr>
                     </thead>
                     <tbody>
@@ -164,6 +166,7 @@
                                         <span class="badge bg-warning">Pending</span>
                                     @endif
                                 </td>
+                                @role('administrator', 'user')
                                 <td>
                                     @if ($p->status_approval==0)
                                     <a href="#" class="btn btn-sm btn-primary status_approval"  kode_ijin="{{ $p->kode_ijin }}">
@@ -187,6 +190,7 @@
                                     </a>
                                     @endif
                                 </td>
+                                @endrole
                             </tr>
                         @endforeach
                     </tbody>
