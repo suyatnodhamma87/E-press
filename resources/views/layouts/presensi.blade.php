@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="{{ asset('assets/datetime/css/mobiscroll.jquery.min.css') }}" rel="stylesheet" />
+    {{-- <link rel="manifest" href="__manifest.json"> --}}
     <style>
         .selectmaterialize {
             display: block;
