@@ -13,7 +13,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Sign in with illustration - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <title>Login - E-Press</title>
     <!-- CSS files -->
     <link href="{{ asset('tabler/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('tabler/dist/css/tabler-flags.min.css?1692870487') }}" rel="stylesheet"/>
@@ -60,9 +60,6 @@
                     <div class="mb-2">
                       <label class="form-label">
                         Password
-                        <span class="form-label-description">
-                          <a href="./forgot-password.html">I forgot password</a>
-                        </span>
                       </label>
                       <div class="input-group input-group-flat">
                         <input type="password" name="password" class="form-control"  placeholder="Your password"  autocomplete="off">
@@ -74,19 +71,13 @@
                       </div>
                     </div>
                     <div class="mb-2">
-                      <label class="form-check">
-                        <input type="checkbox" class="form-check-input"/>
-                        <span class="form-check-label">Remember me on this device</span>
-                      </label>
+                      <label class="form-check"></label>
                     </div>
                     <div class="form-footer">
                       <button type="submit" class="btn btn-primary w-100">Sign in</button>
                     </div>
                   </form>
                 </div>
-              <div class="text-center text-secondary mt-3">
-                Don't have account yet? <a href="./sign-up.html" tabindex="-1">Sign up</a>
-              </div>
             </div>
           </div>
         </div>
