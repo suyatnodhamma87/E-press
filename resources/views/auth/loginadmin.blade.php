@@ -1,4 +1,3 @@
-
 <!doctype html>
 <!--
 * Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
@@ -13,8 +12,9 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Login - E-Press</title>
+    <title>Login - Admin E-Press</title>
     <!-- CSS files -->
+    <link rel="icon" type="image/png" href="{{asset('assets/img/logopt.png')}}" sizes="32x32">
     <link href="{{ asset('tabler/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('tabler/dist/css/tabler-flags.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('tabler/dist/css/tabler-payments.min.css?1692870487') }}" rel="stylesheet"/>
@@ -55,14 +55,14 @@
                     @csrf
                     <div class="mb-3">
                       <label class="form-label">Email address</label>
-                      <input type="email" name="email" class="form-control" placeholder="your@email.com" autocomplete="off">
+                      <input type="email" name="email" class="form-control" placeholder="Email" autocomplete="off">
                     </div>
                     <div class="mb-2">
                       <label class="form-label">
                         Password
                       </label>
                       <div class="input-group input-group-flat">
-                        <input type="password" name="password" class="form-control"  placeholder="Your password"  autocomplete="off">
+                        <input type="password" name="password" class="form-control"  placeholder="Password"  autocomplete="off">
                         <span class="input-group-text">
                           <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
@@ -70,6 +70,7 @@
                         </span>
                       </div>
                     </div>
+                    {{-- <div><a href="page-forgot-password.html" class="text-muted">Forgot Password?</a></div> --}}
                     <div class="mb-2">
                       <label class="form-check"></label>
                     </div>

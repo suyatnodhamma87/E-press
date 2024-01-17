@@ -1,4 +1,5 @@
 @extends('layouts.admin.tabler')
+<link rel="icon" type="image/png" href="{{asset('assets/img/logopt.png')}}" sizes="32x32">
 @section('content')
 <div class="page-header d-print-none">
     <div class="container-xl">
