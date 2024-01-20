@@ -159,7 +159,7 @@
         var lok = lokasi_kantor.split(",");
         var lat_kantor = lok[0];
         var long_kantor = lok[1];
-        var radius = "{{ $lok_kantor->radius_anper }}";
+        var radius = "{{ $lok_kantor->radius }}";
         L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
             maxZoom: 20,
             subdomains:['mt0','mt1','mt2','mt3']
@@ -171,7 +171,7 @@
         var circle = L.circle([lat_kantor, long_kantor], {
             color: 'red',
             fillColor: '#f03',
-            fillOpacity: 0.5,
+            fillOpacity: 0.2,
             radius: radius
         }).addTo(map);
     }

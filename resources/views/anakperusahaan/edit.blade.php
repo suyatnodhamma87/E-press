@@ -63,7 +63,7 @@
                         <path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                     </svg>
                     </span>
-                        <input type="text" value="{{ $anakperusahaan->radius_anper }}" id="radius_anper" name="radius_anper" class="form-control" placeholder="Radius">
+                        <input type="text" value="{{ $anakperusahaan->radius }}" id="radius_anper" name="radius" class="form-control" placeholder="Radius">
                 </div>
             </div>
         </div>

@@ -63,20 +63,19 @@
   <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
   <section class="sheet padding-10mm">
 
-    <!-- Write HTML just like a web page -->
-
         <table style="width: 100%">
             <tr>
                 <td style="width:10%">
-                    <img src="{{ asset('assets/img/logopt.png') }}" width="100" height="100" alt="">
+                    <img src="{{ asset('assets/img/logonalanda.png') }}" width="70" height="100" alt="">
                 </td>
+                <td> </td>
                 <td>
                     <span id="title">
                         LAPORAN KEHADIRAN KARYAWAN<br>
                         PERIODE {{ strtoupper($namabulan[$bulan])}} {{ $tahun }}<br>
-                        PT. RAJAWALI PARAMA KONSTRUKSI<br>
+                        STAB NALANDA<br>
                     </span>
-                    <span><i>Jl. Bhayangkara 1 No. 1 Kel. Pakujaya Kec. Serpong, Tangerang Selatan</span>
+                    <span><i>Jl. Pulo Gebang Permai No.107, RT.13/RW.4, Kel. Pulo Gebang, Kec. Cakung, Jakarta Timur</span>
                 </td>
             </tr>
 

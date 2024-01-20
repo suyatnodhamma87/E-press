@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ImportKaryawan;
 use App\Models\Karyawan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KaryawanController extends Controller
 {
@@ -24,7 +26,7 @@ class KaryawanController extends Controller
             if (!empty($request->kode_div)) {
                 $query->where('karyawan.kode_div', $request->kode_div);
             }
-        $karyawan = $query->paginate(5);
+        $karyawan = $query->paginate(10);
 
         $divisi = DB::table('divisi')->get();
         $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
@@ -149,5 +151,23 @@ class KaryawanController extends Controller
         } else {
             return Redirect::back()->with(['warning' => 'Password gagal direset']);
         }
+    }
+
+    public function importexcel(Request $request){
+        //Validasi
+        $this->validate($request,[
+            'file'=>'required|mimes:xls,xlsx'
+        ]);
+
+        $file=$request->file("file");
+
+        $namaFile=$file->getClientOriginalName();
+
+        $file->move("importexcel",$namaFile);
+
+        Excel::import(new ImportKaryawan,public_path('/importexcel/'.$namaFile));
+
+        return redirect()->back();
+
     }
 }

@@ -79,11 +79,11 @@
                                     <thead>
                                         <tr style="text-align: center">
                                             <th style="text-align: center">No</th>
-                                            <th>Kode Anak Perusahaan</th>
-                                            <th>Nama Anak Perusahaan</th>
+                                            <th>Kode Kerja</th>
+                                            <th>Nama Kerja</th>
                                             <th>Lokasi</th>
                                             <th>Radius</th>
-                                            <th width:>Aksi</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -93,7 +93,7 @@
                                             <td>{{ $a->kode_anper }}</td>
                                             <td>{{ $a->nama_anper }}</td>
                                             <td>{{ $a->lokasi_anper }}</td>
-                                            <td>{{ $a->radius_anper }} meter</td>
+                                            <td>{{ $a->radius }} meter</td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="#" class="editdata btn btn-success btn-sn" kode_anper="{{ $a->kode_anper }}">
@@ -156,7 +156,7 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                            <input type="text" value="" id="kodeanper" name="kodeanper" class="form-control" placeholder="Kode Anak Perusahaan">
+                            <input type="text" value="" id="kode_anper" name="kode_anper" class="form-control" placeholder="Kode Kerja">
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@
                                 <path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                             </svg>
                             </span>
-                                <input type="text" value="" id="radius_anper" name="radius_anper" class="form-control" placeholder="Radius">
+                                <input type="text" value="" id="radius" name="radius" class="form-control" placeholder="Radius">
                         </div>
                     </div>
                 </div>
@@ -291,7 +291,7 @@
             var kode_anper = $("#kode_anper").val();
             var nama_anper = $("#nama_anper").val();
             var lokasi = $("#lokasi_anper").val();
-            var radius = $("#radius_anper").val();
+            var radius = $("#radius").val();
 
             if(kode_anper == "") {
                 Swal.fire({
@@ -326,7 +326,7 @@
                     text: 'Radius Harus Diisi!',
                     icon: 'warning',
                     confirmButtonText: 'Ok'
-                    }).then((result) => {$("#radius_anper").focus();
+                    }).then((result) => {$("#radius").focus();
                 });
                 return false;
             }

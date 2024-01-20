@@ -14,12 +14,15 @@ class Karyawan extends Authenticatable
 
     protected $table = "karyawan";
     protected $primaryKey = "nip";
+    public $timestamps=false;
     protected $fillable = [
         'nip',
         'nama_lengkap',
         'jabatan',
         'no_hp',
         'password',
+        "kode_div",
+        "kode_anper"
     ];
 
 

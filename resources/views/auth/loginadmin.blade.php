@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Login - Admin E-Press</title>
     <!-- CSS files -->
-    <link rel="icon" type="image/png" href="{{asset('assets/img/logopt.png')}}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/logonalanda.png')}}" sizes="29x45">
     <link href="{{ asset('tabler/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('tabler/dist/css/tabler-flags.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('tabler/dist/css/tabler-payments.min.css?1692870487') }}" rel="stylesheet"/>
@@ -41,7 +41,7 @@
                 <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
               </div>
               <div class="col-lg d-none d-lg-block">
-                <img src="{{ asset('tabler/static/illustrations/logopt2.png') }}" height="150" class="d-block mx-auto" alt="">
+                <img src="{{ asset('tabler/static/illustrations/logonalanda.png') }}" height="150" class="d-block mx-auto" alt="">
               </div>
               <div class="card card-md">
                 <div class="card-body">

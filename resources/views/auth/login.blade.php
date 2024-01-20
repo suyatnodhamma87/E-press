@@ -11,8 +11,8 @@
     <title>E-Press</title>
     {{-- <meta name="description" content="Mobilekit HTML Mobile UI Kit"> --}}
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
-    <link rel="icon" type="image/png" href="{{asset('assets/img/logopt.png')}}" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="{asset('assets/img/logopt.png')}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/logonalanda.png')}}" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="{asset('assets/img/logonalanda.png')}">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="{!! asset('assets/css/style.css') !!}">
     <link rel="manifest" href="__manifest.json">
@@ -32,7 +32,7 @@
 
         <div class="login-form mt-1">
             <div class="section">
-                <img src="{{asset('assets/img/icon/logologin.png')}}" alt="image" class="form-image">
+                <img src="{{asset('assets/img/icon/logonalanda.png')}}" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
                 <h1>E-Press</h1>
@@ -56,6 +56,12 @@
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>
                         </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <select id="login_as" name="login_as" class="form-control selectmaterialize">
+                            <option value="">Login As</option>
+                        </select>
                     </div>
 
                     <div class="form-group boxed">

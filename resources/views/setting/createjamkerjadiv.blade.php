@@ -6,7 +6,7 @@
         <div class="col">
           <!-- Page pre-title -->
           <h2 class="page-title">
-            Setting Jam Kerja Karyawan
+            Setting Jam Kerja Divisi
           </h2>
         </div>
       </div>
@@ -24,7 +24,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="kode_anper" id="kode_anper" class="form-select">
-                                    <option value="">Pilih Anak Perusahaan</option>
+                                    <option value="">Pilih Mode Kerja</option>
                                     @foreach ($anper as $a )
                                     <option value="{{ $a->kode_anper }}">{{ strtoupper($a->nama_anper) }}</option>
                                     @endforeach

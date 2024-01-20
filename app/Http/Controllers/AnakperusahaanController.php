@@ -36,7 +36,6 @@ class AnakperusahaanController extends Controller
     public function edit (Request $request) {
         $kode_anper = $request->kode_anper;
         $anakperusahaan = DB::table('anakperusahaan')->where('kode_anper', $kode_anper)->first();
-        //dd($anper);
         return view ('anakperusahaan.edit', compact('anakperusahaan'));
     }
 
@@ -44,13 +43,13 @@ class AnakperusahaanController extends Controller
         $kode_anper = $request->kode_anper;
         $nama_anper = $request->nama_anper;
         $lokasi_anper = $request->lokasi_anper;
-        $radius_anper = $request->radius_anper;
+        $radius = $request->radius;
 
         try {
             $data = [
                 'nama_anper' => $nama_anper,
                 'lokasi_anper' => $lokasi_anper,
-                'radius_anper' => $radius_anper
+                'radius' => $radius
             ];
             DB::table('anakperusahaan')
                 ->where('kode_anper', $kode_anper)

@@ -121,6 +121,7 @@ Route::group(['middleware' => ['role:administrator,user']], function (){
     Route::post('/karyawan/edit', [KaryawanController::class, 'edit']);
     Route::post('/karyawan/{nip}/update', [KaryawanController::class, 'update']);
     Route::post('/karyawan/{nip}/delete', [KaryawanController::class, 'delete']);
+    Route::post("/karyawan/importexcel",[KaryawanController::class,"importexcel"])->name("importexcel");
 
 
     //Divisi
@@ -131,7 +132,6 @@ Route::group(['middleware' => ['role:administrator,user']], function (){
     Route::post('/divisi/{kode_div}/delete', [DivisiController::class, 'delete']);
 
     //presensi
-
     Route::post('/presensi/approvalijinkaryawan', [PresensiController::class, 'approvalijinkaryawan']);
     Route::get('/presensi/{kode_ijin}/batalkanapproval', [PresensiController::class, 'batalkanapproval']);
 
@@ -207,4 +207,12 @@ Route::get('/give-role-permission', function(){
     } catch (\Exception $e) {
         echo "error";
     }
+});
+
+Route::get('/get-image',function(){
+    $path = 'D:\Onedrive\OneDrive - Bina Nusantara\KULIAH\KULIAH\e-presensi\Aplikasi Nalanda E-Press\Nalanda E-press\public\assets\img\logopt.png';
+$type = pathinfo($path, PATHINFO_EXTENSION);
+$data = file_get_contents($path);
+$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+return $base64;
 });

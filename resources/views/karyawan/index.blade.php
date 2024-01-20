@@ -37,7 +37,8 @@
                         </div>
                         {{-- Button tambah data --}}
                         @role('administrator', 'user')
-                            <div class="col-12">
+                        <div class="row">
+                            <div class="col-2">
                                 <a href="#" class="btn btn-primary" id="btnTambahkaryawan">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -47,7 +48,18 @@
                                     Tambah data
                                 </a>
                             </div>
+                            <div class="col-2">
+                                <a href="#" class="btn btn-success" id="btnImportExcel">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-import" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                        <path d="M5 13v-8a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-5.5m-9.5 -2h7m-3 -3l3 3l-3 3" />
+                                    </svg>
+                                    Import Data
+                                </a>
+                            </div>
                         </div>
+
                         @endrole
                         {{-- Button tambah data --}}
 
@@ -322,6 +334,32 @@
       </div>
     </div>
   </div>
+  <!-- Import Excel -->
+  <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="post" action="/karyawan/importexcel" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+                </div>
+                <div class="modal-body">
+
+                    {{ csrf_field() }}
+
+                    <label>Pilih file excel</label>
+                    <div class="form-group">
+                        <input type="file" name="file" required="required">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Close</button>
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
 
 @push ('myscript')
@@ -333,6 +371,13 @@
             $("#modal-tambahkaryawan").modal("show");
 
         });
+
+        $("#btnImportExcel").click(function(){
+            $("#importExcel").modal("show")
+        })
+        $("#btnClose").click(function(){
+            $("#importExcel").modal("hide")
+        })
 
         // function tombol edit karyawan
         $(".edit").click(function() {

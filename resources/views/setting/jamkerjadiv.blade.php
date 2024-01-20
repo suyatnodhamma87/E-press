@@ -54,7 +54,7 @@
                                             <th>Kode</th>
                                             <th>Anper</th>
                                             <th>Divisi</th>
-                                            <th width:>Aksi</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
