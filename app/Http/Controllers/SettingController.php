@@ -35,6 +35,7 @@ class SettingController extends Controller
     public function jamkerja() {
         $jamkerja = DB::table('jam_kerja')->join("anakperusahaan","anakperusahaan.kode_anper","=","jam_kerja.kode_jamkerja")->orderBy('jam_kerja.kode_jamkerja')->get();
         $modekerja=DB::table('anakperusahaan')->get();
+        //dd($modekerja);
         return view ('setting.jamkerja', compact ('jamkerja',"modekerja"));
 
     }
@@ -67,8 +68,8 @@ class SettingController extends Controller
     public function editjamkerja (Request $request) {
         $kode_jamkerja = $request->kode_jamkerja;
         $jam_kerja = DB::table('jam_kerja')->where('kode_jamkerja', $kode_jamkerja)->first();
-
-        return view ('setting.editjamkerja', compact('jam_kerja'));
+        $modekerja = DB::table('anakperusahaan')->get();
+        return view ('setting.editjamkerja', compact('jam_kerja', 'modekerja'));
     }
 
     public function updatejamkerja(Request $request) {

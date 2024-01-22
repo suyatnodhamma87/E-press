@@ -44,7 +44,7 @@
                     Data Master
                   </span>
                 </a>
-                <div class="dropdown-menu {{ request()->is(['karyawan', 'divisi', 'anakperusahaan', 'cuti']) ? 'show' : '' }}">
+                <div class="dropdown-menu {{ request()->is(['karyawan', 'divisi', 'cuti']) ? 'show' : '' }}">
                   <div class="dropdown-menu-columns">
                     <div class="dropdown-menu-column">
                       @role('administrator|admin divisi', 'user')
@@ -56,11 +56,11 @@
                       <a class="dropdown-item {{ request()->is(['divisi']) ? 'active' : '' }}" href="/divisi">
                         Divisi
                       </a>
-                      <a class="dropdown-item {{ request()->is(['anakperusahaan']) ? 'active' : '' }}" href="/anakperusahaan">
+                      {{-- <a class="dropdown-item {{ request()->is(['anakperusahaan']) ? 'active' : '' }}" href="/anakperusahaan">
                         Mode Lokasi Kerja
-                      </a>
+                      </a> --}}
                       <a class="dropdown-item {{ request()->is(['cuti']) ? 'active' : '' }}" href="/cuti">
-                        Cuti
+                        Jenis Cuti
                       </a>
                       @endrole
                     </div>
@@ -139,18 +139,18 @@
                     Setting
                   </span>
                 </a>
-                <div class="dropdown-menu  {{ request()->is(['setting', 'setting/*']) ? 'show' : '' }}">
+                <div class="dropdown-menu  {{ request()->is(['setting', 'setting/*', 'anakperusahaan']) ? 'show' : '' }}">
                   <div class="dropdown-menu-columns">
                     <div class="dropdown-menu-column">
-                      {{-- <a class="dropdown-item {{ request()->is(['setting/lokasikantor']) ? 'active' : '' }}" href="/setting/lokasikantor">
-                        Lokasi kantor
-                      </a> --}}
                       <a class="dropdown-item {{ request()->is(['setting/jamkerja']) ? 'active' : '' }}" href="/setting/jamkerja">
                         Jam Kerja
                       </a>
-                      <a class="dropdown-item {{ request()->is(['setting/jamkerja_divisi']) ? 'active' : '' }}" href="/setting/jamkerjadiv">
-                        Jam Kerja Divisi
+                      <a class="dropdown-item {{ request()->is(['anakperusahaan']) ? 'active' : '' }}" href="/anakperusahaan">
+                        Mode Lokasi Kerja
                       </a>
+                      {{-- <a class="dropdown-item {{ request()->is(['setting/jamkerja_divisi']) ? 'active' : '' }}" href="/setting/jamkerjadiv">
+                        Jam Kerja Divisi
+                      </a> --}}
                       <a class="dropdown-item {{ request()->is(['setting/users']) ? 'active' : '' }}" href="/setting/users">
                         Users
                       </a>

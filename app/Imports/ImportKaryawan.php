@@ -20,7 +20,7 @@ class ImportKaryawan implements ToModel,WithStartRow
             "foto"=>null,
             "kode_div"=>$arr[6],
             'password'=>Hash::make(123),
-            "kode_anper"=>$arr[7]
+            "kode_anper"=>null
 
         ]);
     }
