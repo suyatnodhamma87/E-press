@@ -6,7 +6,7 @@
         <div class="col">
           <!-- Page pre-title -->
           <h2 class="page-title">
-            Data Anak Perusahaan
+            Data Mode Lokasi Kerja
           </h2>
         </div>
       </div>

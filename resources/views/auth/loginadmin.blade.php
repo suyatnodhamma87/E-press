@@ -41,7 +41,7 @@
                 <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
               </div>
               <div class="col-lg d-none d-lg-block">
-                <img src="{{ asset('tabler/static/illustrations/logonalanda.png') }}" height="150" class="d-block mx-auto" alt="">
+                <img src="{{ asset('tabler/static/illustrations/logonalanda.png') }}" height="200" class="d-block mx-auto" alt="">
               </div>
               <div class="card card-md">
                 <div class="card-body">

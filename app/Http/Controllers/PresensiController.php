@@ -49,6 +49,10 @@ class PresensiController extends Controller
             case 'Sat' :
                 $hari_ini = "Sabtu";
                 break;
+
+            case 'Min' :
+                $hari_ini = "Minggu";
+                break;
         }
         return $hari_ini;
 
@@ -69,6 +73,7 @@ class PresensiController extends Controller
         $jamkerja =  DB::table('setting_jamker_div_detail')
             ->join('setting_jamker_div', 'setting_jamker_div_detail.kode_jk_div', '=', 'setting_jamker_div.kode_jk_div')
             ->join('jam_kerja','setting_jamker_div_detail.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
+
             ->where('kode_div', $kode_div)
             ->where('kode_anper', $kode_anper)
             ->where('hari', $namahari)->first();
@@ -79,7 +84,6 @@ class PresensiController extends Controller
         } else {
             return view('presensi.create', compact('cek', 'lok_kantor', 'jamkerja'));
         }
-
     }
 
     public function store (Request $request) {
@@ -440,7 +444,7 @@ class PresensiController extends Controller
 
         if (isset($_POST['exportexcel'])) {
             $time = date("d-m-Y H:i:s");
-            return Excel::download(new ExportLaporan($bulan,$tahun,$kode_div),'tes.xlsx');
+            return Excel::download(new ExportLaporan($bulan,$tahun,$kode_div),"Rekap Laporan Kehadiran Karyawan $time.xlsx");
         }
         return view ('presensi.cetaklaporanpresensiall', ['bulan'=>$bulan, 'tahun'=>$tahun, 'namabulan'=>$namabulan, 'cetaklaporanpresensiall'=>$cetaklaporanpresensiall, 'rangetanggal'=>$rangetanggal, 'jmlhari'=>$jmlhari]);
 

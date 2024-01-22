@@ -138,6 +138,20 @@
                                     </select>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    Minggu
+                                    <input type="hidden" name="hari[]" value="Minggu">
+                                </td>
+                                <td>
+                                    <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select" required>
+                                        <option value="">Pilih Jam Kerja</option>
+                                        @foreach ($jamkerja as $d)
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <button class="btn btn-primary w-100" type="submit">Simpan</button>

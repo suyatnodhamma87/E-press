@@ -57,7 +57,7 @@
                         Divisi
                       </a>
                       <a class="dropdown-item {{ request()->is(['anakperusahaan']) ? 'active' : '' }}" href="/anakperusahaan">
-                        Anak Perusahaan
+                        Mode Lokasi Kerja
                       </a>
                       <a class="dropdown-item {{ request()->is(['cuti']) ? 'active' : '' }}" href="/cuti">
                         Cuti

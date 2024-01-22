@@ -33,8 +33,10 @@ class SettingController extends Controller
     }
 
     public function jamkerja() {
-        $jamkerja = DB::table('jam_kerja')->orderBy('kode_jamkerja')->get();
-                return view ('setting.jamkerja', compact ('jamkerja'));
+        $jamkerja = DB::table('jam_kerja')->join("anakperusahaan","anakperusahaan.kode_anper","=","jam_kerja.kode_jamkerja")->orderBy('jam_kerja.kode_jamkerja')->get();
+        $modekerja=DB::table('anakperusahaan')->get();
+        return view ('setting.jamkerja', compact ('jamkerja',"modekerja"));
+
     }
 
     public function storejamkerja(Request $request) {

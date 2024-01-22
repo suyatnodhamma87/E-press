@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Data Kehadiran Karyawan</title>
     <style>
-        @page { size: A4 landscape}
+        @page { size: F4 landscape}
 
         #title {
             font-family: Arial, Helvetica, sans-serif;
@@ -54,15 +54,18 @@
 
         <table style="width: 100%">
             <tr>
+                <td style="width:10%">
+                    <img src="{{ asset('assets/img/logonalanda.png') }}" width="70" height="100" alt="">
+                </td>
                 <td>
-                    </td>
+                </td>
                 <td>
                     <span id="title">
                         LAPORAN KEHADIRAN SELURUH KARYAWAN<br>
                         PERIODE {{ strtoupper($namabulan[$bulan])}} {{ $tahun }}<br>
-                        PT. RAJAWALI PARAMA KONSTRUKSI<br>
+                        STAB NALANDA<br>
                     </span>
-                    <span><i>Jl. Bhayangkara 1 No. 1 Kel. Pakujaya Kec. Serpong, Tangerang Selatan</i></span>
+                    <span><i>Jl. Pulo Gebang Permai No.107, RT.13/RW.4, Kel. Pulo Gebang, Kec. Cakung, Kota Jakarta Timur</i></span>
                 </td>
             </tr>
 

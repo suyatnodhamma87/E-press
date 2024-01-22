@@ -63,7 +63,6 @@
                     </table>
                     <button class="btn btn-primary w-100" type="submit">Update</button>
                 </form>
-
             </div>
             <div class="col-6">
                 <table class="table">

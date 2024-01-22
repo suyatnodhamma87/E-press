@@ -30,13 +30,13 @@
     <!-- App Capsule -->
     <div id="appCapsule" class="pt-0">
 
-        <div class="login-form mt-1">
+        <div class="login-form mt-4">
             <div class="section">
                 <img src="{{asset('assets/img/icon/logonalanda.png')}}" alt="image" class="form-image">
             </div>
-            <div class="section mt-1">
+            {{-- <div class="section mt-1">
                 <h1>E-Press</h1>
-            </div>
+            </div> --}}
             <div class="section mt-1 mb-5">
                 @php
                 $messagewarning = Session::get('warning');
@@ -58,11 +58,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group mt-2">
+                    {{-- <div class="form-group mt-2">
                         <select id="login_as" name="login_as" class="form-control selectmaterialize">
                             <option value="">Login As</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group boxed">
                         <div class="input-wrapper">

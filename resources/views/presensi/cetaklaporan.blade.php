@@ -45,7 +45,6 @@
             border: 1px solid black;
             padding: 5px;
             font-size: 12px;
-
         }
         .foto {
             width: 50px;
@@ -189,8 +188,6 @@
                 </td>
             </tr>
         </table>
-
-
   </section>
 </body>
 </html>

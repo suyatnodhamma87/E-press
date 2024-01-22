@@ -57,7 +57,9 @@
                                             <th>Jam Masuk</th>
                                             <th>Akhir Jam Masuk</th>
                                             <th>Awal Pulang</th>
-                                            <th width:>Aksi</th>
+                                            <th>Lokasi Kerja</th>
+                                            <th>Radius</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -65,11 +67,14 @@
                                         <tr>
                                             <td> {{ $loop->iteration }}</td>
                                             <td>{{ $j->kode_jamkerja }}</td>
-                                            <td>{{ $j->nama_jamkerja }}</td>
+                                            <td>{{ $j->nama_anper }}</td>
                                             <td>{{ $j->awal_jam_masuk }}</td>
                                             <td>{{ $j->jam_masuk }}</td>
                                             <td>{{ $j->akhir_jam_masuk }}</td>
                                             <td>{{ $j->jam_pulang }}</td>
+                                            <td>{{ $j->lokasi_anper }}</td>
+                                            <td>{{ $j->radius }}</td>
+
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="#" class="editdata btn btn-success btn-sm" kode_jamkerja="{{ $j->kode_jamkerja }}">
@@ -95,7 +100,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -150,7 +154,12 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                            <input type="text" value="" id="nama_jamkerja" name="nama_jamkerja" class="form-control" placeholder="Nama Jam Kerja">
+                        <select name="nama_jamkerja" id="nama_jamkerja" class="form-control">
+                            <option value="" selected>Nama Jam Kerja</option>
+                            @foreach ($modekerja as $item)
+                                <option value="{{ $item->kode_anper }}">{{ $item->nama_anper }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
