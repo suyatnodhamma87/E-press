@@ -46,6 +46,8 @@ class SettingController extends Controller
         $jam_masuk = $request->jam_masuk;
         $akhir_jam_masuk = $request->akhir_jam_masuk;
         $jam_pulang = $request->jam_pulang;
+        $lokasi_kerja = $request->lokasi_kerja;
+        $radius_kerja = $request->radius_kerja;
 
         $data = [
             'kode_jamkerja' => $kode_jamkerja,
@@ -53,7 +55,9 @@ class SettingController extends Controller
             'awal_jam_masuk' => $awal_jam_masuk,
             'jam_masuk' => $jam_masuk,
             'akhir_jam_masuk' => $akhir_jam_masuk,
-            'jam_pulang' => $jam_pulang
+            'jam_pulang' => $jam_pulang,
+            'lokasi_kerja' => $lokasi_kerja,
+            'radius_kerja' => $radius_kerja
         ];
 
         try {
