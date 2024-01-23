@@ -63,8 +63,8 @@ class PresensiController extends Controller
         $nip = Auth::guard('karyawan')->user()->nip;
         $kode_div = Auth::guard('karyawan')->user()->kode_div;
         $cek = DB::table('presensi')->where('tgl_presensi', $hariini)->where('nip', $nip)->count();
-        // $kode_anper = Auth::guard('karyawan')->user()->kode_anper;
-        $lok_kantor = DB::table('jam_kerja')->where('kode_anper', $kode_anper)->first();
+        $kode_anper = Auth::guard('karyawan')->user()->kode_anper;
+        // $lok_kantor = DB::table('jam_kerja')->where('kode_anper', $kode_anper)->first();
         $lok_kantor = DB::table('anakperusahaan')->where('kode_anper', $kode_anper)->first();
         $jamkerja =  DB::table('setting_jam_kerja')
             ->join('jam_kerja','setting_jam_kerja.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
