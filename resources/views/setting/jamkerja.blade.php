@@ -154,12 +154,13 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                        <select name="nama_jamkerja" id="nama_jamkerja" class="form-control">
+                        <input type="text" value="" id="nama_jamkerja" name="nama_jamkerja" class="form-control" placeholder="Nama Jam Kerja">
+                        {{-- <select name="nama_jamkerja" id="nama_jamkerja" class="form-control">
                             <option value="" selected>Nama Jam Kerja</option>
                             @foreach ($modekerja as $item)
                                 <option value="{{ $item->kode_anper }}">{{ $item->nama_anper }}</option>
                             @endforeach
-                        </select>
+                        </select> --}}
                     </div>
                 </div>
             </div>
