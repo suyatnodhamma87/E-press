@@ -155,11 +155,11 @@
     function succesCallback(position){
         lokasi.value = position.coords.latitude+","+position.coords.longitude;
         var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 15);
-        var lokasi_kantor = "{{ $lok_kantor->lokasi_anper }}"
+        var lokasi_kantor = "{{ $jamkerja->lokasi_kerja }}"
         var lok = lokasi_kantor.split(",");
         var lat_kantor = lok[0];
         var long_kantor = lok[1];
-        var radius = "{{ $lok_kantor->radius }}";
+        var radius = "{{ $jamkerja->radius_kerja }}";
         L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
             maxZoom: 20,
             subdomains:['mt0','mt1','mt2','mt3']
@@ -223,4 +223,3 @@
     });
 </script>
 @endpush
-

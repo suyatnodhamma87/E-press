@@ -63,36 +63,36 @@ class PresensiController extends Controller
         $nip = Auth::guard('karyawan')->user()->nip;
         $kode_div = Auth::guard('karyawan')->user()->kode_div;
         $cek = DB::table('presensi')->where('tgl_presensi', $hariini)->where('nip', $nip)->count();
-        $kode_anper = Auth::guard('karyawan')->user()->kode_anper;
-        $lok_kantor = DB::table('anakperusahaan')->where('kode_anper', $kode_anper)->first();
         $jamkerja =  DB::table('setting_jam_kerja')
             ->join('jam_kerja','setting_jam_kerja.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
             ->where('nip', $nip)->where('hari', $namahari)->first();
 
-        if ($jamkerja == null) {
-        $jamkerja =  DB::table('setting_jamker_div_detail')
-            ->join('setting_jamker_div', 'setting_jamker_div_detail.kode_jk_div', '=', 'setting_jamker_div.kode_jk_div')
-            ->join('jam_kerja','setting_jamker_div_detail.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
+        // if ($jamkerja == null) {
+        // $jamkerja =  DB::table('setting_jamker_div_detail')
+        //     ->join('setting_jamker_div', 'setting_jamker_div_detail.kode_jk_div', '=', 'setting_jamker_div.kode_jk_div')
+        //     ->join('jam_kerja','setting_jamker_div_detail.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
 
-            ->where('kode_div', $kode_div)
-            ->where('kode_anper', $kode_anper)
-            ->where('hari', $namahari)->first();
-        }
+        //     ->where('kode_div', $kode_div)
+        //     //->where('kode_anper', $kode_anper)
+        //     ->where('hari', $namahari)->first();
+        // }
 
         if ($jamkerja == null) {
             return view('presensi.notifikasijadwal');
         } else {
-            return view('presensi.create', compact('cek', 'lok_kantor', 'jamkerja'));
+            return view('presensi.create', compact('cek', 'jamkerja'));
         }
     }
 
     public function store (Request $request) {
         $nip = Auth::guard('karyawan')->user()->nip;
-        $kode_anper = Auth::guard('karyawan')->user()->kode_anper;
         $tgl_presensi = date("Y-m-d");
         $jam = date("H:i:s");
-        $lok_kantor = DB::table('anakperusahaan')->where('kode_anper', $kode_anper)->first();
-        $lok = explode(",", $lok_kantor->lokasi_anper);
+        $namahari = $this->gethari();
+        $jamkerja =  DB::table('setting_jam_kerja')
+            ->join('jam_kerja','setting_jam_kerja.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
+            ->where('nip', $nip)->where('hari', $namahari)->first();
+        $lok = explode(",", $jamkerja->lokasi_kerja);
         $latitudekantor = $lok[0];
         $longitudekantor = $lok[1];
         $lokasi = $request->lokasi;
@@ -101,12 +101,8 @@ class PresensiController extends Controller
         $longitudeuser = $lokasiuser[1];
         $jarak = $this->distance($latitudekantor, $longitudekantor, $latitudeuser, $longitudeuser);
         $radius = round($jarak["meters"]);
-        $namahari = $this->gethari();
-        $jamkerja =  DB::table('setting_jam_kerja')
-            ->join('jam_kerja','setting_jam_kerja.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
-            ->where('nip', $nip)->where('hari', $namahari)->first();
 
-        //cek jam kerja karyawan
+        // cek jam kerja karyawan
         $presensi = DB::table('presensi')->where('tgl_presensi', $tgl_presensi)->where('nip', $nip);
         $cek = $presensi->count();
         $datapresensi = $presensi->first();
@@ -124,7 +120,7 @@ class PresensiController extends Controller
         $fileName = $formatName . ".png";
         $file = $folderPath. $fileName;
 
-        if($radius >$lok_kantor->radius) {
+        if($radius >$jamkerja->radius_kerja) {
             echo "error|Maaf Anda berada di luar radius, Jarak Anda ".$radius." meter dari kantor|radius";
         } else {
             if($cek > 0){
