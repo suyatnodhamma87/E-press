@@ -52,7 +52,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -66,7 +66,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -80,7 +80,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -94,7 +94,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -108,7 +108,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -122,7 +122,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -136,7 +136,7 @@
                                     <select name="kode_jamkerja[]" id="kode_jamkerja" class="form-select">
                                         <option value="">Pilih Jam Kerja</option>
                                         @foreach ($jamkerja as $d)
-                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->nama_jamkerja }}</option>
+                                        <option value="{{ $d->kode_jamkerja }}">{{ $d->kode_jamkerja }}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -166,7 +166,7 @@
                         @foreach ($jamkerja as $d )
                         <tr>
                             <td>{{ $d->kode_jamkerja }}</td>
-                            <td>{{ $d->nama_jamkerja }}</td>
+                            <td>{{ $d->nama_anper }}</td>
                             <td>{{ $d->awal_jam_masuk }}</td>
                             <td>{{ $d->jam_masuk }}</td>
                             <td>{{ $d->akhir_jam_masuk }}</td>

@@ -26,11 +26,11 @@ class KaryawanController extends Controller
             if (!empty($request->kode_div)) {
                 $query->where('karyawan.kode_div', $request->kode_div);
             }
-        $karyawan = $query->paginate(10);
+        $karyawan = $query->paginate(20);
 
         $divisi = DB::table('divisi')->get();
-        // $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
-        return view ('karyawan.index', compact('karyawan', 'divisi'));
+        $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
+        return view ('karyawan.index', compact('karyawan', 'divisi', 'anakperusahaan'));
     }
 
     public function store (Request $request) {
@@ -54,9 +54,10 @@ class KaryawanController extends Controller
                 'jabatan' => $jabatan,
                 'no_hp' => $no_hp,
                 'kode_div' => $kode_div,
+                'lokasi_anper' => $kode_anper,
                 'foto' => $foto,
-                'password' => $password,
-                // 'kode_anper' => $kode_anper
+                'password' => $password
+
             ];
 
             $simpan = DB::table('karyawan')->insert($data);
@@ -157,6 +158,7 @@ class KaryawanController extends Controller
         ]);
 
         $file=$request->file("file");
+        // dd($file);
 
         $namaFile=$file->getClientOriginalName();
 

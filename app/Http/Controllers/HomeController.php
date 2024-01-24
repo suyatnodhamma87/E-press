@@ -15,7 +15,7 @@ class HomeController extends Controller
       $nip = Auth::guard('karyawan')->user()->nip;
       $presensihariini = DB::table('presensi')->where('nip', $nip)->where('tgl_presensi', $hariini)->first();
       $historybulanini = DB::table('presensi')
-         ->select('presensi.*', 'alasan', 'nama_cuti', 'nama_jamkerja', 'jam_masuk')
+         ->select('presensi.*', 'alasan', 'nama_cuti', 'kode_lokasi', 'jam_masuk')
          ->leftjoin('ijin', 'presensi.kode_ijin', '=', 'ijin.kode_ijin')
          ->leftjoin('jam_kerja', 'presensi.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
          ->leftjoin('data_cuti', 'ijin.kode_cuti', '=', 'data_cuti.kode_cuti')

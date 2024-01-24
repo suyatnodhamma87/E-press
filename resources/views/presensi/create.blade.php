@@ -62,7 +62,7 @@
 <div class="jam-digital-malasngoding">
     <p>{{ date("d-m-Y") }}</p>
     <p id="jam"></p>
-    <p> {{ $jamkerja->nama_jamkerja }}</p>
+    <p> {{ $jamkerja->kode_lokasi }}</p>
     <p> Mulai : {{ date("H:i", strtotime($jamkerja->awal_jam_masuk))  }}</p>
     <p> Masuk : {{ date("H:i", strtotime($jamkerja->jam_masuk)) }}</p>
     <p> Akhir : {{ date("H:i", strtotime($jamkerja->akhir_jam_masuk)) }}</p>

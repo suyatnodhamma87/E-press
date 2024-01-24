@@ -55,11 +55,7 @@
 
 </head>
 
-<!-- Set "A5", "A4" or "A3" for class name -->
-<!-- Set also "landscape" if you need -->
 <body class="A4">
-  <!-- Each sheet element should have the class "sheet" -->
-  <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
   <section class="sheet padding-10mm">
 
         <table style="width: 100%">
@@ -183,11 +179,17 @@
         <table>
             <tr>
                 <td style="text-align: center; vertical-align:bottom" height="150px">
-                    <u>Selamet</u><br>
+                    <u>............</u><br>
                     <i>HRD Manajer</i>
                 </td>
             </tr>
         </table>
   </section>
+
+<script type="text/javascript">
+    window.print();
+
+</script>
+
 </body>
 </html>

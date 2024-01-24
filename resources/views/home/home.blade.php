@@ -9,6 +9,7 @@
         text-decoration: none;
         right:20px;
     }
+
 </style>
 
 <!-- App Capsule -->
@@ -32,19 +33,31 @@
             <div id="user-info">
                 <h2 id="user-name">{{ Auth::guard ('karyawan')->user()->nama_lengkap }}</h2>
                 <span id="user-role">{{ Auth::guard('karyawan')->user()->jabatan }}</span>
-                <span style="font-size:8" id="user-role"> - {{ Auth::guard('karyawan')->user()->kode_anper}}</span>
+                {{-- <span style="font-size:8" id="user-role"> - {{ Auth::guard('karyawan')->user()->kode_anper}}</span> --}}
             </div>
         </div>
     </div>
 
 
     <div class="section" id="menu-section">
-        <div class="card">
+        <div class="card" style="background-color: #ffd139">
             <div class="card-body text-center">
                 <div class="list-menu">
                     <div class="item-menu text-center">
                         <div class="menu-icon">
-                            <h3>PT. Rajawali Parama Konstruksi <br>E-Press</h3>
+                            <style>
+                                #jam {
+                                    font-size: 60px;
+                                    text-align: center;
+                                    font-family: poppins;
+                                    color: rgb(23, 2, 87);
+                                    line-height: 50px;
+                                    }
+                            </style>
+                              <h2>STAB NALANDA</h2>
+                              <h3>E-Press</h3>
+                            <div id="jam"><div>
+
                            {{-- <img class="responsive" width="100%" height="auto" src="{{ asset('assets/img/home/1_rpk.png') }}"> --}}
                         </div>
                     </div>
@@ -52,87 +65,9 @@
             </div>
         </div>
     </div>
-    {{-- <div class="section" id="menu-section">
-        <div class="card">
-            <div class="card-body text-center">
-                <div class="list-menu">
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="/editprofile" class="green" style="font-size: 40px;">
-                                <ion-icon name="person-sharp"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Profil</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="/presensi/ijin" class="danger" style="font-size: 40px;">
-                                <ion-icon name="calendar-number"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Cuti</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="/presensi/history" class="warning" style="font-size: 40px;">
-                                <ion-icon name="document-text"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Histori</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="" class="orange" style="font-size: 40px;">
-                                <ion-icon name="location"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            Lokasi
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <div class="section mt-5" id="presence-section">
         <div class="todaypresence">
             <div class="row">
-                {{-- <div class="col-6">
-                    <div class="card gradasigreen">
-                        <div class="card-body">
-                            <div class="presencecontent">
-                                <div class="iconpresence">
-                                    <ion-icon name="camera"></ion-icon>
-                                </div>
-                                <div class="presencedetail">
-                                    <h4 class="presencetitle">Masuk</h4>
-                                    <span>{{ $presensihariini != null ? $presensihariini->jam_in : 'Belum absen'  }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card gradasired">
-                        <div class="card-body">
-                            <div class="presencecontent">
-                                <div class="iconpresence">
-                                    <ion-icon name="camera"></ion-icon>
-                                </div>
-                                <div class="presencedetail">
-                                    <h4 class="presencetitle">Pulang</h4>
-                                    <span>{{ $presensihariini != null && $presensihariini->jam_out ? $presensihariini->jam_out : 'Belum absen' }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
 
@@ -215,10 +150,10 @@
                                     <ion-icon style="font-size:48px; color:orange" name="finger-print-outline"></ion-icon>
                                 </div>
                                 <div class="datapresensi">
-                                    <h3 style="line-height: 2px;"> {{ $item->nama_jamkerja }}</h3>
+                                    <h3 style="line-height: 2px;"> {{ ($item->kode_jamkerja) }}</h3>
                                     <h4 style="margin:0px !important"> {{ date("d-m-y", strtotime($item->tgl_presensi)) }}</h4>
                                     <span>
-                                        {!! $item->jam_in != null ? date("H:i", strtotime($item->jam_in)) : '<span class="text-danger">Belum Absen</span>' !!}
+                                        {!! $item->jam_in != null ? date("H:i |", strtotime($item->jam_in)) : '<span class="text-danger">Belum Absen</span>' !!}
                                     </span>
                                     <span>
                                         {!! $item->jam_out != null ? date("H:i", strtotime($item->jam_out)) : '<span class="text-danger">- Belum Absen</span>' !!}
@@ -255,7 +190,7 @@
                                 <div class="datapresensi">
                                     <h3 style="line-height: 2px;">IJIN (Tidak Masuk)</h3>
                                     <h4 style="margin:0px !important"> {{ date("d-m-y", strtotime($item->tgl_presensi)) }}</h4>
-                                    <span class="text-info">{{ $item->nama_cuti }}</span>
+                                    <span class="text-info">{{ $item->nama_cuti }} </span>
                                     <span> {{ $item->alasan }}</span>
                                 </div>
                             </div>
@@ -271,7 +206,7 @@
                                 <div class="datapresensi">
                                     <h3 style="line-height: 2px;">IJIN (Sakit)</h3>
                                     <h4 style="margin:0px !important"> {{ date("d-m-y", strtotime($item->tgl_presensi)) }}</h4>
-                                    <span class="text-info">{{ $item->nama_cuti }}</span>
+                                    <span class="text-info">{{ $item->nama_cuti }} |</span>
                                     <span> {{ $item->alasan }}</span>
                                 </div>
                             </div>
@@ -287,7 +222,7 @@
                                 <div class="datapresensi">
                                     <h3 style="line-height: 2px;">IJIN (Cuti)</h3>
                                     <h4 style="margin:0px !important"> {{ date("d-m-y", strtotime($item->tgl_presensi)) }}</h4>
-                                    <span class="text-info">{{ $item->nama_cuti }}</span>
+                                    <span class="text-info">{{ $item->nama_cuti }} |</span>
                                     <span> {{ $item->alasan }}</span>
                                 </div>
                             </div>
@@ -301,4 +236,14 @@
     </div>
 </div>
 <!-- * App Capsule -->
+
+<script>
+setInterval(() => {
+        date = new Date;
+        document.getElementById('jam').innerText = date.getHours() + ' : ' + date.getMinutes() + ' : ' + date.getSeconds()
+
+    }, 1000);
+</script>
+
 @endsection
+

@@ -22,13 +22,13 @@
                 <ion-icon style="font-size:48px; color:orange" name="finger-print-outline"></ion-icon>
             </div>
             <div class="datapresensi">
-                <h3 style="line-height: 2px;"> {{ $h->nama_jamkerja }}</h3>
+                <h3 style="line-height: 2px;"> {{ $h->kode_jamkerja }}</h3>
                 <h4 style="margin:0px !important"> {{ date("d-m-y", strtotime($h->tgl_presensi)) }}</h4>
                 <span>
-                    {!! $h->jam_in != null ? date("H-i", strtotime($h->jam_in)) : '<span class="text-danger">Belum Absen</span>' !!}
+                    {!! $h->jam_in != null ? date("H:i |", strtotime($h->jam_in)) : '<span class="text-danger">Belum Absen</span>' !!}
                 </span>
                 <span>
-                    {!! $h->jam_out != null ? date("H-i", strtotime($h->jam_out)) : '<span class="text-danger">- Belum Absen</span>' !!}
+                    {!! $h->jam_out != null ? date("H:i", strtotime($h->jam_out)) : '<span class="text-danger">- Belum Absen</span>' !!}
                 </span>
 
                 <div id="keterangan" class="mt-2">

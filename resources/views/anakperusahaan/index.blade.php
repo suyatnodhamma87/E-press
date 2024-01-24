@@ -79,8 +79,8 @@
                                     <thead>
                                         <tr style="text-align: center">
                                             <th style="text-align: center">No</th>
-                                            <th>Kode Kerja</th>
-                                            <th>Nama Kerja</th>
+                                            <th>Kode Lokasi</th>
+                                            <th>Nama Lokasi</th>
                                             <th>Lokasi</th>
                                             <th>Radius</th>
                                             <th>Aksi</th>
@@ -156,7 +156,7 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                            <input type="text" value="" id="kode_anper" name="kode_anper" class="form-control" placeholder="Kode Kerja">
+                            <input type="text" value="" id="kode_anper" name="kode_anper" class="form-control" placeholder="Kode Lokasi">
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                            <input type="text" value="" id="nama_anper" name="nama_anper" class="form-control" placeholder="Nama Anak Perusahaan">
+                            <input type="text" value="" id="nama_anper" name="nama_anper" class="form-control" placeholder="Nama Lokasi">
                     </div>
                 </div>
             </div>

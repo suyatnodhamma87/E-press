@@ -29,7 +29,7 @@
         .tabelpresensi tr th {
             border: 1px solid black;
             padding: 8px;
-            background: gray;
+            background: rgb(182, 179, 179);
             font-weight: bold;
             font-size: 11px;
         }
@@ -48,11 +48,8 @@
 
 </head>
 
-<!-- Set "A5", "A4" or "A3" for class name -->
-<!-- Set also "landscape" if you need -->
 <body class="F4 landscape">
-
-        <table style="width: 100%">
+        <table style="width: 80%">
             <tr>
                 <td style="width:10%">
                     <img src="{{ asset('assets/img/logonalanda.png') }}" width="70" height="100" alt="">
@@ -76,11 +73,11 @@
                 <th rowspan="2"> No.</th>
                 <th rowspan="2"> NIP</th>
                 <th rowspan="2"> Nama Karyawan</th>
-                <th colspan="{{ $jmlhari }}" align="center"> Bulan {{ $namabulan[$bulan] }}</th>
+                <th colspan="{{ $jmlhari }}"> Bulan {{ $namabulan[$bulan] }}</th>
                 <th rowspan="2">H</th>
                 <th rowspan="2">I</th>
                 <th rowspan="2">S</th>
-                <th rowspan="2">A</th>
+                <th rowspan="2">C</th>
             </tr>
             <tr>
                 @foreach ($rangetanggal as $d )
@@ -143,7 +140,7 @@
                     <td align="center"> {{ !empty($jml_hadir) ? $jml_hadir : "" }}</td>
                     <td align="center"> {{ !empty($jml_ijintidakmasuk) ? $jml_ijintidakmasuk : "" }}</td>
                     <td align="center"> {{ !empty($jml_sakit) ? $jml_sakit : "" }}</td>
-                    <td align="center"> {{ !empty($jml_alpha) ? $jml_alpha : "" }}</td>
+                    <td align="center"> {{ !empty($jml_cuti) ? $jml_cuti : "" }}</td>
 
 
             </tr>
@@ -154,10 +151,15 @@
         <table>
             <tr>
                 <td style="text-align: center; vertical-align:bottom" height="100px">
-                    <u>Selamet</u><br>
+                    <u>...............</u><br>
                     <i>HRD Manajer</i>
                 </td>
             </tr>
         </table>
+
+        <script type="text/javascript">
+        window.print();
+
+        </script>
 </body>
 </html>

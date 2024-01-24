@@ -103,6 +103,7 @@
                                             <th>Nama</th>
                                             <th>Jabatan</th>
                                             <th>Divisi</th>
+                                            <th>Lokasi</th>
                                             <th>No HP</th>
                                             <th>Foto</th>
                                             <th>Aksi</th>
@@ -120,6 +121,9 @@
                                                 <td>{{ $k->jabatan }}</td>
                                                 <td style="text-align:center">
                                                     {{ $k->nama_div }}
+                                                </td>
+                                                <td style="text_align:center">
+                                                    {{ $k->kode_anper }}
                                                 </td>
                                                 <td>{{ $k->no_hp }}</td>
                                                 <td style="text-align: center">
@@ -268,6 +272,18 @@
                                 <option value=""> Divisi</option>
                                 @foreach ($divisi as $d)
                                 <option {{ request('kode_div')==$d->kode_div ? 'selected' : ''}} value ="{{ $d->kode_div }}"> {{  $d->nama_div }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-icon mb-3">
+                            <select name="kode_anper" id="kode_anper" class="form-select">
+                                <option value="">Anak Perusahaan</option>
+                                @foreach ($anakperusahaan as $a)
+                                <option value ="{{ $a->kode_anper }}">  {{ strtoupper($a->nama_anper)}} </option>
                                 @endforeach
                             </select>
                         </div>

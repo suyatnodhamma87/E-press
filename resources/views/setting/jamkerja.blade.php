@@ -50,15 +50,15 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr style="text-align: center">
-                                            <th style="text-align: center">No</th>
+                                            <th>No</th>
                                             <th>Kode Jam Kerja</th>
-                                            <th>Nama Jam Kerja</th>
+                                            <th>Mode Lokasi</th>
                                             <th>Awal Jam Masuk</th>
                                             <th>Jam Masuk</th>
                                             <th>Akhir Jam Masuk</th>
                                             <th>Awal Pulang</th>
                                             <th>Lokasi Kerja</th>
-                                            <th>Radius</th>
+                                            <th>Radius (m)</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -154,13 +154,13 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                        <input type="text" value="" id="nama_jamkerja" name="nama_jamkerja" class="form-control" placeholder="Nama Jam Kerja">
-                        {{-- <select name="nama_jamkerja" id="nama_jamkerja" class="form-control">
-                            <option value="" selected>Nama Jam Kerja</option>
+                        {{-- <input type="text" value="" id="nama_jamkerja" name="nama_jamkerja" class="form-control" placeholder="Nama Lokasi"> --}}
+                        <select name="kode_lokasi" id="kode_lokasi" class="form-control">
+                            <option value="" selected>Nama Lokasi</option>
                             @foreach ($modekerja as $item)
                                 <option value="{{ $item->kode_anper }}">{{ $item->nama_anper }}</option>
                             @endforeach
-                        </select> --}}
+                        </select>
                     </div>
                 </div>
             </div>

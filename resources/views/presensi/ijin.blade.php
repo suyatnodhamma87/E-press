@@ -125,7 +125,7 @@
                             @if (!empty($d->doc_sid))
                             <span style="color:blue">
                             <ion-icon name="document-attach-outline" ></ion-icon>
-                            Lihat SID
+                            Surat terlampir
                             </span>
                             @endif
                         </p>

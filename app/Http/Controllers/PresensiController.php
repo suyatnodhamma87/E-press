@@ -68,7 +68,7 @@ class PresensiController extends Controller
         $jamkerja =  DB::table('setting_jam_kerja')
             ->join('jam_kerja','setting_jam_kerja.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
             ->where('nip', $nip)->where('hari', $namahari)->first();
-
+//dd($lok_kantor);
         if ($jamkerja == null) {
         $jamkerja =  DB::table('setting_jamker_div_detail')
             ->join('setting_jamker_div', 'setting_jamker_div_detail.kode_jk_div', '=', 'setting_jamker_div.kode_jk_div')
@@ -205,7 +205,7 @@ class PresensiController extends Controller
         $password = Hash::make($request -> password);
         $karyawan = DB::table('karyawan')->where('nip',$nip)->first();
         $request->validate([
-            'foto' => ' image | mimes:png,jpg | max:1000'
+            'foto' => 'image | mimes:png,jpg,jpeg | max:2000'
         ]);
         if ($request -> hasFile('foto')) {
             $foto = $nip.".".$request->file('foto')->getClientOriginalExtension();
@@ -234,10 +234,11 @@ class PresensiController extends Controller
                 $folderPath = "public/uploads/karyawan/";
                 $request->file('foto')->storeAs($folderPath, $foto);
             }
+
             return Redirect::back()->with(['success' => 'Update BERHASIL!']);
         } else {
             return Redirect::back()->with(['error'=> 'Update GAGAL!']);
-        }
+         }
     }
 
     public function history() {
@@ -245,13 +246,13 @@ class PresensiController extends Controller
         return view ('presensi.history', compact('namabulan'));
     }
 
-    public function gery(Request $request) {
+    public function gethistory(Request $request) {
         $bulan = $request->bulan;
         $tahun = $request->tahun;
         $nip = Auth::guard('karyawan')->user()->nip;
 
         $history = DB::table('presensi')
-         ->select('presensi.*', 'alasan', 'nama_cuti', 'nama_jamkerja', 'jam_masuk')
+         ->select('presensi.*', 'alasan', 'nama_cuti', 'kode_lokasi', 'jam_masuk')
          ->leftjoin('ijin', 'presensi.kode_ijin', '=', 'ijin.kode_ijin')
          ->leftjoin('jam_kerja', 'presensi.kode_jamkerja', '=', 'jam_kerja.kode_jamkerja')
          ->leftjoin('data_cuti', 'ijin.kode_cuti', '=', 'data_cuti.kode_cuti')
@@ -261,7 +262,7 @@ class PresensiController extends Controller
          ->orderBy('tgl_presensi')
          ->get();
 
-        return view('presensi.gery', compact('history'));
+        return view('presensi.gethistory', compact('history'));
     }
     public function ijin(Request $request) {
         $nip = Auth::guard('karyawan')->user()->nip;
@@ -436,8 +437,8 @@ class PresensiController extends Controller
                 $join->on('karyawan.nip', '=', 'presensi.nip');
             }
         );
-        if(!empty($kodediv)) {
-            $query->where('kode_div', $kodediv);
+        if(!empty($kode_div)) {
+            $query->where('kode_div', $kode_div);
         }
         $query->orderBy('nip');
         $cetaklaporanpresensiall = $query->get();

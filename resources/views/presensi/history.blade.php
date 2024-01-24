@@ -55,7 +55,7 @@
         </div>
     </div>
 </div>
-<div class="row mt-2" style="position: fixed; width:100%; margin:auto; overflow-y:scroll; height:430px">
+<div class="row mt-2" style="position: fixed; width:100%; margin:auto; overflow-y:scroll; height:600px">
     <div class="col" id="tampilhistory"></div>
 </div>
 @endsection
