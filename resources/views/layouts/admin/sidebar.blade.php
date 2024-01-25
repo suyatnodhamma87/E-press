@@ -56,9 +56,9 @@
                       <a class="dropdown-item {{ request()->is(['divisi']) ? 'active' : '' }}" href="/divisi">
                         Divisi
                       </a>
-                      <a class="dropdown-item {{ request()->is(['anakperusahaan']) ? 'active' : '' }}" href="/anakperusahaan">
+                      {{-- <a class="dropdown-item {{ request()->is(['anakperusahaan']) ? 'active' : '' }}" href="/anakperusahaan">
                         Mode Lokasi Kerja
-                      </a>
+                      </a> --}}
                       <a class="dropdown-item {{ request()->is(['cuti']) ? 'active' : '' }}" href="/cuti">
                         Cuti
                       </a>
@@ -148,9 +148,9 @@
                       <a class="dropdown-item {{ request()->is(['setting/jamkerja']) ? 'active' : '' }}" href="/setting/jamkerja">
                         Jam Kerja
                       </a>
-                      <a class="dropdown-item {{ request()->is(['setting/jamkerja_divisi']) ? 'active' : '' }}" href="/setting/jamkerjadiv">
+                      {{-- <a class="dropdown-item {{ request()->is(['setting/jamkerja_divisi']) ? 'active' : '' }}" href="/setting/jamkerjadiv">
                         Jam Kerja Divisi
-                      </a>
+                      </a> --}}
                       <a class="dropdown-item {{ request()->is(['setting/users']) ? 'active' : '' }}" href="/setting/users">
                         Users
                       </a>

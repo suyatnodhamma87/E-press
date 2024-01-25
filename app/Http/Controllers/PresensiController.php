@@ -241,7 +241,7 @@ class PresensiController extends Controller
         return view ('presensi.history', compact('namabulan'));
     }
 
-    public function gery(Request $request) {
+    public function gethistory(Request $request) {
         $bulan = $request->bulan;
         $tahun = $request->tahun;
         $nip = Auth::guard('karyawan')->user()->nip;
@@ -257,7 +257,7 @@ class PresensiController extends Controller
          ->orderBy('tgl_presensi')
          ->get();
 
-        return view('presensi.gery', compact('history'));
+        return view('presensi.gethistory', compact('history'));
     }
     public function ijin(Request $request) {
         $nip = Auth::guard('karyawan')->user()->nip;
@@ -432,8 +432,8 @@ class PresensiController extends Controller
                 $join->on('karyawan.nip', '=', 'presensi.nip');
             }
         );
-        if(!empty($kodediv)) {
-            $query->where('kode_div', $kodediv);
+        if(!empty($kode_div)) {
+            $query->where('kode_div', $kode_div);
         }
         $query->orderBy('nip');
         $cetaklaporanpresensiall = $query->get();

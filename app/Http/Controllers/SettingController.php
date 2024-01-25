@@ -33,11 +33,9 @@ class SettingController extends Controller
     }
 
     public function jamkerja() {
-        $jamkerja = DB::table('jam_kerja')->join("anakperusahaan","anakperusahaan.kode_anper","=","jam_kerja.kode_jamkerja")->orderBy('jam_kerja.kode_jamkerja')->get();
-        $modekerja=DB::table('anakperusahaan')->get();
-        //dd($jamkerja);
-        return view ('setting.jamkerja', compact ('jamkerja',"modekerja"));
+        $jamkerja = DB::table('jam_kerja')->orderBy('kode_jamkerja')->get();
 
+        return view ('setting.jamkerja', compact ('jamkerja'));
     }
 
     public function storejamkerja(Request $request) {
@@ -48,6 +46,7 @@ class SettingController extends Controller
         $akhir_jam_masuk = $request->akhir_jam_masuk;
         $jam_pulang = $request->jam_pulang;
         $lokasi_kerja = $request->lokasi_kerja;
+        $radius_kerja = $request->radius_kerja;
 
         $data = [
             'kode_jamkerja' => $kode_jamkerja,
@@ -55,7 +54,9 @@ class SettingController extends Controller
             'awal_jam_masuk' => $awal_jam_masuk,
             'jam_masuk' => $jam_masuk,
             'akhir_jam_masuk' => $akhir_jam_masuk,
-            'jam_pulang' => $jam_pulang
+            'jam_pulang' => $jam_pulang,
+            'lokasi_kerja' => $lokasi_kerja,
+            'radius_kerja' => $radius_kerja
         ];
 
         try {

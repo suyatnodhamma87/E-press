@@ -29,7 +29,7 @@
         .tabelpresensi tr th {
             border: 1px solid black;
             padding: 8px;
-            background: gray;
+            background: rgb(164, 163, 163);
             font-weight: bold;
             font-size: 11px;
         }
@@ -80,7 +80,7 @@
                 <th rowspan="2">H</th>
                 <th rowspan="2">I</th>
                 <th rowspan="2">S</th>
-                <th rowspan="2">A</th>
+                <th rowspan="2">C</th>
             </tr>
             <tr>
                 @foreach ($rangetanggal as $d )
@@ -143,7 +143,7 @@
                     <td align="center"> {{ !empty($jml_hadir) ? $jml_hadir : "" }}</td>
                     <td align="center"> {{ !empty($jml_ijintidakmasuk) ? $jml_ijintidakmasuk : "" }}</td>
                     <td align="center"> {{ !empty($jml_sakit) ? $jml_sakit : "" }}</td>
-                    <td align="center"> {{ !empty($jml_alpha) ? $jml_alpha : "" }}</td>
+                    <td align="center"> {{ !empty($jml_cuti) ? $jml_cuti : "" }}</td>
 
 
             </tr>
@@ -154,10 +154,14 @@
         <table>
             <tr>
                 <td style="text-align: center; vertical-align:bottom" height="100px">
-                    <u>Selamet</u><br>
+                    <u>...........</u><br>
                     <i>HRD Manajer</i>
                 </td>
             </tr>
         </table>
+
+    <script type="text/javascript">
+        window.print();
+    </script>
 </body>
 </html>

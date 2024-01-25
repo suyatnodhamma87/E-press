@@ -29,8 +29,8 @@ class KaryawanController extends Controller
         $karyawan = $query->paginate(10);
 
         $divisi = DB::table('divisi')->get();
-        $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
-        return view ('karyawan.index', compact('karyawan', 'divisi', 'anakperusahaan'));
+        // $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
+        return view ('karyawan.index', compact('karyawan', 'divisi'));
     }
 
     public function store (Request $request) {
@@ -39,8 +39,7 @@ class KaryawanController extends Controller
         $jabatan = $request->jabatan;
         $no_hp = $request->no_hp;
         $kode_div = $request->kode_div;
-        $password = Hash::make('123');
-        $kode_anper = $request->kode_anper;
+        $password = Hash::make($nip.'123');
         if ($request -> hasFile('foto')) {
             $foto = $nip.".".$request->file('foto')->getClientOriginalExtension();
         } else {
@@ -56,7 +55,6 @@ class KaryawanController extends Controller
                 'kode_div' => $kode_div,
                 'foto' => $foto,
                 'password' => $password,
-                'kode_anper' => $kode_anper
             ];
 
             $simpan = DB::table('karyawan')->insert($data);
@@ -69,7 +67,7 @@ class KaryawanController extends Controller
             }
 
         } catch (\Exception $e ) {
-
+       // dd($e);
             if($e->getCode() == 23000) {
                 $message = "Data dengan NIP " . $nip . "Sudah ada";
             } else {
@@ -82,9 +80,8 @@ class KaryawanController extends Controller
         $nip =  $request->nip;
         $divisi = DB::table('divisi')->get();
         $karyawan = DB::table('karyawan')->where('nip', $nip)->first();
-        $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
 
-        return view('karyawan.edit', compact('divisi', 'karyawan', 'anakperusahaan'));
+        return view('karyawan.edit', compact('divisi', 'karyawan'));
     }
 
     public function update($nip, Request $request) {
@@ -93,8 +90,7 @@ class KaryawanController extends Controller
         $jabatan = $request->jabatan;
         $no_hp = $request->no_hp;
         $kode_div = $request->kode_div;
-        $kode_anper = $request->kode_anper;
-        $password = Hash::make('123');
+        $password = Hash::make($nip.'123');
         $old_foto = $request->old_foto;
         if ($request -> hasFile('foto')) {
             $foto = $nip.".".$request->file('foto')->getClientOriginalExtension();
@@ -108,7 +104,6 @@ class KaryawanController extends Controller
                 'jabatan' => $jabatan,
                 'no_hp' => $no_hp,
                 'kode_div' => $kode_div,
-                'kode_anper' => $kode_anper,
                 'foto' => $foto,
                 'password' => $password
             ];
@@ -141,7 +136,7 @@ class KaryawanController extends Controller
     public function resetpassword($nip) {
 
         $nip = Crypt::decrypt($nip);
-        $password = Hash::make('123');
+        $password = Hash::make($nip.'123');
         $reset = DB::table('karyawan')->where('nip',$nip)->update([
             'password' => $password
         ]);

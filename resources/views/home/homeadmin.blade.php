@@ -7,7 +7,7 @@
         <div class="col">
           <!-- Page pre-title -->
           <div class="page-pretitle">
-           Rajawali E-Press
+           NALANDA E-Press
           </div>
           <h2 class="page-title">
             Rekap Kehadiran Hari Ini {{ date('d-m-Y', strtotime(date('Y-m-d'))) }}

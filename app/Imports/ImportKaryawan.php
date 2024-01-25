@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\Karyawan;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -16,11 +17,10 @@ class ImportKaryawan implements ToModel,WithStartRow
             "nip"=>$arr[1],
             "nama_lengkap"=>$arr[2],
             "jabatan"=>$arr[3],
-            "no_hp"=>$arr[4],
+            "kode_div"=>$arr[4],
+            "no_hp"=>$arr[5],
             "foto"=>null,
-            "kode_div"=>$arr[6],
-            'password'=>Hash::make(123),
-            "kode_anper"=>$arr[7]
+            'password'=>Hash::make($arr[1].'123')
 
         ]);
     }

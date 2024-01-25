@@ -36,103 +36,33 @@
             </div>
         </div>
     </div>
-
-
     <div class="section" id="menu-section">
         <div class="card">
             <div class="card-body text-center">
                 <div class="list-menu">
                     <div class="item-menu text-center">
                         <div class="menu-icon">
-                            <h3>PT. Rajawali Parama Konstruksi <br>E-Press</h3>
-                           {{-- <img class="responsive" width="100%" height="auto" src="{{ asset('assets/img/home/1_rpk.png') }}"> --}}
+                            <style>
+                                #jam {
+                                    font-size: 55px;
+                                    text-align: center;
+                                    font-family: poppins;
+                                    color: rgb(23, 2, 87);
+                                    line-height: 50px;
+                                    }
+                            </style>
+                              <h2 style="letter-spacing: 0.3rem">STAB NALANDA</h2>
+                              <h3>E-Press</h3>
+                              <div id="jam"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {{-- <div class="section" id="menu-section">
-        <div class="card">
-            <div class="card-body text-center">
-                <div class="list-menu">
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="/editprofile" class="green" style="font-size: 40px;">
-                                <ion-icon name="person-sharp"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Profil</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="/presensi/ijin" class="danger" style="font-size: 40px;">
-                                <ion-icon name="calendar-number"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Cuti</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="/presensi/history" class="warning" style="font-size: 40px;">
-                                <ion-icon name="document-text"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Histori</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="" class="orange" style="font-size: 40px;">
-                                <ion-icon name="location"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            Lokasi
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <div class="section mt-5" id="presence-section">
         <div class="todaypresence">
             <div class="row">
-                {{-- <div class="col-6">
-                    <div class="card gradasigreen">
-                        <div class="card-body">
-                            <div class="presencecontent">
-                                <div class="iconpresence">
-                                    <ion-icon name="camera"></ion-icon>
-                                </div>
-                                <div class="presencedetail">
-                                    <h4 class="presencetitle">Masuk</h4>
-                                    <span>{{ $presensihariini != null ? $presensihariini->jam_in : 'Belum absen'  }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card gradasired">
-                        <div class="card-body">
-                            <div class="presencecontent">
-                                <div class="iconpresence">
-                                    <ion-icon name="camera"></ion-icon>
-                                </div>
-                                <div class="presencedetail">
-                                    <h4 class="presencetitle">Pulang</h4>
-                                    <span>{{ $presensihariini != null && $presensihariini->jam_out ? $presensihariini->jam_out : 'Belum absen' }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
 
@@ -301,4 +231,44 @@
     </div>
 </div>
 <!-- * App Capsule -->
+
+{{-- JS Jam Digital --}}
+<script>
+function animation(span) {
+   span.className = "turn";
+   setTimeout(function () {
+      span.className = ""
+   }, 700);
+}
+
+function jam() {
+   setInterval(function () {
+
+      var waktu = new Date();
+      var jam   = document.getElementById('jam');
+      var hours = waktu.getHours();
+      var minutes = waktu.getMinutes();
+      var seconds = waktu.getSeconds();
+
+      if (waktu.getHours() < 10)
+      {
+         hours = '0' + waktu.getHours();
+      }
+      if (waktu.getMinutes() < 10)
+      {
+         minutes = '0' + waktu.getMinutes();
+      }
+      if (waktu.getSeconds() < 10)
+      {
+         seconds = '0' + waktu.getSeconds();
+      }
+      jam.innerHTML  = '<span>' + hours + ':</span>'
+                     + '<span>' + minutes + ':</span>'
+                     + '<span>' + seconds +'</span>';
+   }, 1000);
+}
+
+jam();
+</script>
+
 @endsection

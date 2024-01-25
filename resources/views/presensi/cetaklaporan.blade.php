@@ -183,11 +183,16 @@
         <table>
             <tr>
                 <td style="text-align: center; vertical-align:bottom" height="150px">
-                    <u>Selamet</u><br>
+                    <u>............</u><br>
                     <i>HRD Manajer</i>
                 </td>
             </tr>
         </table>
   </section>
+
+<script type="text/javascript">
+    window.print();
+</script>
+
 </body>
 </html>
