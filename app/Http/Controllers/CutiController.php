@@ -66,8 +66,7 @@ class CutiController extends Controller
             DB::table('data_cuti')->where('kode_cuti', $kode_cuti)->delete();
             return Redirect::back()->with(['success' => 'Data berhasil dihapus!']);
         } catch (\Exception $e) {
-            dd($e);
-            // return Redirect::back()->with(['warning' => 'Data gagal dihapus!'. $e->getMessage()]);
+            return Redirect::back()->with(['warning' => 'Data gagal dihapus!'. $e->getMessage()]);
         }
     }
 }
