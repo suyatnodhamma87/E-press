@@ -63,6 +63,7 @@ class SettingController extends Controller
             DB::table ('jam_kerja')->insert($data);
             return Redirect::back()->with(['success' => 'Data berhasil disimpan']);
         }catch (\Exception $e){
+
             return Redirect::back()->with(['warning' => 'Data gagal disimpan']);
         }
     }
@@ -81,13 +82,17 @@ class SettingController extends Controller
         $jam_masuk = $request->jam_masuk;
         $akhir_jam_masuk = $request->akhir_jam_masuk;
         $jam_pulang = $request->jam_pulang;
+        $lokasi_kerja = $request->lokasi_kerja;
+        $radius_kerja = $request->radius_kerja;
 
         $data = [
             'nama_jamkerja' => $nama_jamkerja,
             'awal_jam_masuk' => $awal_jam_masuk,
             'jam_masuk' => $jam_masuk,
             'akhir_jam_masuk' => $akhir_jam_masuk,
-            'jam_pulang' => $jam_pulang
+            'jam_pulang' => $jam_pulang,
+            'lokasi_kerja' => $lokasi_kerja,
+            'radius_kerja' => $radius_kerja
         ];
 
         try {

@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="pageTitle">
-            E-Press
+           E-Presensi
         </div>
         <div class="right"></div>
     </div>
