@@ -155,10 +155,10 @@
         <ion-icon name="add-circle-outline"></ion-icon>
     </a>
     <div class="dropdown-menu">
-        <a class="dropdown-item bg-primary" href="/ijintidakmasuk">
+        {{-- <a class="dropdown-item bg-primary" href="/ijintidakmasuk">
             <ion-icon name="information-circle-outline"></ion-icon>
             <p>Tidak Masuk</p>
-        </a>
+        </a> --}}
         <a class="dropdown-item bg-primary" href="/ijinsakit">
             <ion-icon name="medkit-outline"></ion-icon>
             <p>Sakit</p>

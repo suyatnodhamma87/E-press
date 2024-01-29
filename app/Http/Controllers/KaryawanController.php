@@ -18,7 +18,7 @@ class KaryawanController extends Controller
         $query = Karyawan::query();
         $query->select('karyawan.*', 'nama_div');
         $query->join('divisi', 'karyawan.kode_div', '=', 'divisi.kode_div');
-        $query->orderBy('nip');
+        $query->orderBy('create_at',  'asc');
             if (!empty($request->nama_karyawan)) {
                 $query->where('nama_lengkap', 'like', '%' .$request->nama_karyawan . '%');
             }
@@ -26,7 +26,7 @@ class KaryawanController extends Controller
             if (!empty($request->kode_div)) {
                 $query->where('karyawan.kode_div', $request->kode_div);
             }
-        $karyawan = $query->paginate(10);
+        $karyawan = $query->paginate(60);
 
         $divisi = DB::table('divisi')->get();
         // $anakperusahaan = DB::table('anakperusahaan')->orderBy('kode_anper')->get();
@@ -67,7 +67,7 @@ class KaryawanController extends Controller
             }
 
         } catch (\Exception $e ) {
-       // dd($e);
+    //    dd($e);
             if($e->getCode() == 23000) {
                 $message = "Data dengan NIP " . $nip . "Sudah ada";
             } else {

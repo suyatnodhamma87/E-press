@@ -99,7 +99,7 @@
                                     <thead>
                                         <tr style="text-align: center">
                                             <th style="text-align: center">No</th>
-                                            <th>NIP</th>
+                                            <th>NIY</th>
                                             <th>Nama</th>
                                             <th>Jabatan</th>
                                             <th>Divisi</th>
@@ -212,7 +212,7 @@
                                 <path d="M15 12l2 0" />
                                 <path d="M7 16l10 0" /></svg>
                             </span>
-                                <input type="text" maxlength="6" value="" id="nip" name="nip" class="form-control" placeholder="NIP">
+                                <input type="text" maxlength="9" value="" id="nip" name="nip" class="form-control" placeholder="NIY">
                         </div>
                     </div>
                 </div>
@@ -344,9 +344,9 @@
 @push ('myscript')
 <script>
     $(function(){
-        $("#nip").mask("000000");
+        $("#nip").mask("000000000000");
         $("#no_hp").mask("0000000000000");
-        $("#btnTambahkaryawan").click(function() { // function tombol edit karyawan
+        $("#btnTambahkaryawan").click(function() {
             $("#modal-tambahkaryawan").modal("show");
 
         });

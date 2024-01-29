@@ -151,7 +151,7 @@
                             <path d="M15 12l2 0" />
                             <path d="M7 16l10 0" /></svg>
                         </span>
-                            <input type="text" value="" id="kode_div" name="kode_div" class="form-control" placeholder="Kode Divisi">
+                            <input type="text" value="" id="kode_div" name="kode_div" class="form-control" placeholder="Kode Divisi" required>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
                                 <path d="M7 16l10 0" />
                             </svg>
                         </span>
-                            <input type="text" value="" id="nama_div" name="nama_div" class="form-control" placeholder="Nama Divisi">
+                            <input type="text" value="" id="nama_div" name="nama_div" class="form-control" placeholder="Nama Divisi" required>
                     </div>
                 </div>
             </div>
@@ -249,59 +249,29 @@
         });
 
 
-        $("#frmkaryawan").submit(function() {
-            var nip = $("#nip").val();
-            var nama_lengkap = $("#nama_lengkap").val();
-            var jabatan = $("#jabatan").val();
-            var no_hp = $("#no_hp").val();
-            var kode_div = $("frmkaryawan").find("#kode_div").val();
-            if(nip == "") {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'NIP Harus Diisi!',
-                    icon: 'warning',
-                    confirmButtonText: 'Ok'
-                    }).then((result) => {$("#nip").focus();
-                });
-                return false;
-            } else if (nama_lengkap == "") {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'Nama Harus Diisi!',
-                    icon: 'warning',
-                    confirmButtonText: 'Ok'
-                    }).then((result) => {$("#nama").focus();
-                });
-                return false;
-            } else if (jabatan == "") {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'jabatan Harus Diisi!',
-                    icon: 'warning',
-                    confirmButtonText: 'Ok'
-                    }).then((result) => {$("#jabatan").focus();
-                });
-                return false;
-            } else if (no_hp == "") {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'No HP Harus Diisi!',
-                    icon: 'warning',
-                    confirmButtonText: 'Ok'
-                    }).then((result) => {$("#no_hp").focus();
-                });
-                return false;
-            } else if (kode_div == "") {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'Divisi Harus Diisi!',
-                    icon: 'warning',
-                    confirmButtonText: 'Ok'
-                    }).then((result) => {$("#kode_div").focus();
-                });
-                return false;
-            }
-        });
+        // $("#frmdivisi").submit(function() {
+        //     var kode_div = $("#kode_div").val();
+        //     var nama_div = $("#nama_div").val();
+        //     if(kode_div == "") {
+        //         Swal.fire({
+        //             title: 'Warning!',
+        //             text: 'Kode Divisi Harus Diisi!',
+        //             icon: 'warning',
+        //             confirmButtonText: 'Ok'
+        //             }).then((result) => {$("#kode_div").focus();
+        //         });
+        //         return false;
+        //     } else if (nama_div == "") {
+        //         Swal.fire({
+        //             title: 'Warning!',
+        //             text: 'Nama Divisi Harus Diisi!',
+        //             icon: 'warning',
+        //             confirmButtonText: 'Ok'
+        //             }).then((result) => {$("#nama_div").focus();
+        //         });
+        //         return false;
+        //     }
+        // });
     });
 </script>
 @endpush

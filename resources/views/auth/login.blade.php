@@ -51,7 +51,7 @@
                     @csrf
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="text" name="nip" class="form-control" id="nip" placeholder="NIP" autofocus required>
+                            <input type="text" name="nip" class="form-control" id="nip" placeholder="NIY" autofocus required>
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>
