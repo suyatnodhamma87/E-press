@@ -1,6 +1,6 @@
 @foreach($presensi as $p)
 @php
-    $foto_in = Storage::url('/uploads/absensi/'.$p->foto_in);
+    $foto_in = Storage::url('uploads/absensi/'.$p->foto_in);
     $foto_out = Storage::url('uploads/absensi/'.$p->foto_out);
 @endphp
 
