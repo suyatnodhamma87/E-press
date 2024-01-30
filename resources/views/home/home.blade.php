@@ -30,7 +30,7 @@
             </div>
 
             <div id="user-info">
-                <h3 id="user-name">{{ Auth::guard ('karyawan')->user()->nama_lengkap }}</h3>
+                <h2 id="user-name">{{ Auth::guard ('karyawan')->user()->nama_lengkap }}</h2>
                 <span id="user-role">{{ Auth::guard('karyawan')->user()->jabatan }}</span>
                 {{-- <span style="font-size:8" id="user-role"> {{ Auth::guard('karyawan')->user()->kode_anper}}</span> --}}
             </div>
