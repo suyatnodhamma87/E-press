@@ -162,14 +162,14 @@
                                             $jadwal_jam_masuk = $item->tgl_presensi. " " .$jam_masuk;
                                             $jam_presensi = $item->tgl_presensi. " " .$jam_in
                                         @endphp
-                                        @if ($jam_in > $jam_masuk)
+                                        {{-- @if ($jam_in > $jam_masuk)
                                         @php
                                             $jamterlambat = hitungjamterlambat($jadwal_jam_masuk, $jam_presensi);
                                         @endphp
                                             <span class="danger">Terlambat - {{ $jamterlambat }}</span>
                                         @else
                                             <span class="color:green">Tepat Waktu</span>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                             </div>

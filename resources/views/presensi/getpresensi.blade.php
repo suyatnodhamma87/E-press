@@ -10,7 +10,9 @@
     <td>{{ $p->nip }}</td>
     <td>{{ $p->nama_lengkap }}</td>
     <td>{{ $p->nama_div }}</td>
-    <td>{{ $p->nama_jamkerja }}<br>({{ $p->jam_masuk }} s.d {{ $p->jam_pulang }})</td>
+    <td>{{ $p->nama_jamkerja }}
+        {{-- <br>({{ $p->jam_masuk }} s.d {{ $p->jam_pulang }}) --}}
+    </td>
     <td>{{ $p->jam_in }}</td>
     <td>
         <img src="{{ url($foto_in) }}" class="avatar" alt="">
